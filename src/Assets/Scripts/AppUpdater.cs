@@ -5,7 +5,7 @@ public class AppUpdater : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private string appVersion = "1.0.0";
-    [SerializeField] private string versionUrl = "https://raw.githubusercontent.com/DayMoniakk/VtubeLighting/main/VERSION?token=GHSAT0AAAAAAB2XRD25VUMLU7I3LZ2XJCVMZFROW2A";
+    [SerializeField] private string versionUrl = "https://raw.githubusercontent.com/DayMoniakk/VtubeLighting/main/VERSION";
 
     [Header("References")]
     [SerializeField] private GameObject updatePanel;

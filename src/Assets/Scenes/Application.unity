@@ -10521,8 +10521,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c59258007551e46ab3a32ca0106e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appVersion: 1.0.0
-  versionUrl: 
+  appVersion: EA_1.0.0
+  versionUrl: https://raw.githubusercontent.com/DayMoniakk/VtubeLighting/main/VERSION
   updatePanel: {fileID: 24192705}
 --- !u!1 &1550952158
 GameObject:
