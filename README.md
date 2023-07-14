@@ -58,7 +58,7 @@ Click **OK** and **Start Virtual Camera**.
 * VtubeLighting wouldn't exits without [KlakSpout](https://github.com/keijiro/KlakSpout) created by [Keijiro Takahashi](https://github.com/keijiro).
 * The [Montserrat](https://github.com/JulietaUla/Montserrat) font created by [JulietaUla](https://github.com/JulietaUla)
 * The [Unity Engine](https://unity.com/) and its infamous mandatory splash screen :p
-
+* Logo by [Bing AI](https://www.bing.com/?/ai) (he told me he appreciates some credits =D)
 ## FAQ
 
 #### Why creating this app ?
