@@ -12,7 +12,7 @@ Spout2 powered Vtubing application to implement screen lighting without these an
 - No distracting yellow borders around the window
 - The user interface is invisible in your streaming software
 - 100% Open Source & 100% Free, FOREVER
-- Can be easily translated (look at `VtubeLighting_Data\Resources`)
+- Can be easily translated (look at `VtubeLighting_Data\Resources\Translations`)
 ## Requirements
 * A Vtubing software compatible with Spout2 (Vtube Studio, VSeeFace, ...)
 * A streaming software compatible with Spout2 (OBS Studio with 3rd party plugin)
@@ -52,7 +52,7 @@ Click **OK** and **Start Virtual Camera**.
 
 * VtubeLighting supports transparency, so if your OBS Scene has transparency in it you will get it back.
 * The application is built in `Unity 2022.3.4f1` using the built-in render pipeline and the shadergraph, feel free to modify the VtubeLighting !
-* If you're building the application from the source and adding new translations make sure to include the **Translation** folder from `VtubeLighting\Assets\Translations` to `VtubeLighting_Data\Resources` after exporting. Also The KlakSpout library used to handle Spout2 is stored directly inside the project folder instead of the usual path because I had to fix a bug for newer Unity versions.
+* If you're building the application from the source and adding new translations make sure to include the **Translation** folder from `VtubeLighting\Assets\Translations` to `VtubeLighting_Data\Resources\Translations` after exporting. Also The KlakSpout library used to handle Spout2 is stored directly inside the project folder instead of the usual path because I had to fix a bug for newer Unity versions.
 ## Credits
 
 * VtubeLighting wouldn't exits without [KlakSpout](https://github.com/keijiro/KlakSpout) created by [Keijiro Takahashi](https://github.com/keijiro).
