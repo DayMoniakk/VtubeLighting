@@ -69,6 +69,11 @@ Having this kind of lighting effect was always something I wanted, before VtubeL
 So what a programmer does when the tools he wants aren't available ? He simply creates the tools by himself and that's exaclty what I did !
 And I want everyone to enjoy it too, Vtubing is like a big family, we have to help us each others ♡
 
+#### Why do I have a warning when opening the app ?
+
+It's because of **Windows Smart Screen**, basically it just tells you that the software is coming from an unknow source. To verify executables developers have to sign their applications, this is a costly procedure and I don't want to get through this hassle.
+There's no virus involved here, but if you don't trust my executable it's totally fair, just don't use VtubeLighting or compile your own executable from the project file.
+
 #### Is there a Linux or Mac version ?
 
 Sadly no, I don't have a Linux and Mac operating system and I refuse to give you something that I can't test myself.
