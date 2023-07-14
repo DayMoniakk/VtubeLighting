@@ -34,18 +34,20 @@ In Vtube Studio click go into the **settings**, click on the **camera icon** and
 4. Go back to **VtubeLighting**, click on the **refresh button**. If Spout2 is correctly installed and enabled you can already see that **VTubeStudioSpout** is automatically selected
 for you !
 
-5. Now that we have our Vtuber Avatar imported into *VtubeLighting* it's now time to setup the lighting ! Before starting OBS Studio please refer to [this help page](https://docs.offworld.live/#/obs-spout-plugin/README) in order to install the Spout2 plugin.
+5. Now that we have our Vtuber Avatar imported into *VtubeLighting* it's now time to setup the lighting ! Start OBS Studio, create a **new scene**, this scene is basically responsible to light up your avatar. You can for example put your **Game Capture** inside this scene so your avatar will receive lighting from it.
 
-6. When it's installed create a **new scene**, this scene is basically responsible to light up your avatar. You can for example put your **Game Capture** inside this scene so your avatar will receive lighting from it.
-
-7. Now look at bottom right of OBS, there is a button called **Start Virtual Camera**: click on the **gear icon** next to it. For the **Output Type** select **Scene** and for **Ouput Selection** select the **new scene you created earlier**.
+6. Now look at bottom right of OBS, there is a button called **Start Virtual Camera**: click on the **gear icon** next to it. For the **Output Type** select **Scene** and for **Ouput Selection** select the **new scene you created earlier**.
 Click **OK** and **Start Virtual Camera**.
 
-8. Head back to **VtubeLighting**, in **Lighting Setup** there is an option called **Light Source**: use the refresh button and you should automatically have **OBS Virtual Camera** selected.
+7. Head back to **VtubeLighting**, in **Lighting Setup** there is an option called **Light Source**: use the refresh button and you should automatically have **OBS Virtual Camera** selected.
 
-9. Now you can finally use the **Start Lighting** button ! Your OBS scene is now visible inside the application. The last think you need to do is to increase the value of **Light Intensity** and your Avatar is now receiving lighting from OBS !
+8. Now you can finally use the **Start Lighting** button ! Your OBS scene is now visible inside the application. The last think you need to do is to increase the value of **Light Intensity** and your Avatar is now receiving lighting from OBS !
 
-10. You can play around with the **Light Blurring** options to get different results, this has a small cost on performance but don't worry it's not that bad.
+9. You can play around with the **Light Blurring** options to get different results, this has a small cost on performance but don't worry it's not that bad.
+
+10. Once you are happy with the results it's time to send back your vtuber avatar to OBS, there's 2 methods you can use:
+* Install the [Spout2 Plugin for OBS Studio](https://docs.offworld.live/#/obs-spout-plugin/README), add a **Spout2 Capture** in your scene and select **VtubeLighting** in **SpoutSenders**.
+* Use a **Game Capture** source, keep in mind that Spout2 is the preferred method because it doesn't produce any CPU load
 ## Notes
 
 * VtubeLighting supports transparency, so if your OBS Scene has transparency in it you will get it back.
