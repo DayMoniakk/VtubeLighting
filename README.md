@@ -50,6 +50,7 @@ Click **OK** and **Start Virtual Camera**.
 * Use a **Game Capture** source, keep in mind that Spout2 is the preferred method because it doesn't produce any CPU load.
 ## Notes
 
+* Due to my poor shader knowledge your Vtuber avatar will become a bit see-through because I'm just overlaying the image from OBS onto your avatar
 * VtubeLighting supports transparency, so if your OBS Scene has transparency in it you will get it back.
 * The application is built in `Unity 2022.3.4f1` using the built-in render pipeline and the shadergraph, feel free to modify the VtubeLighting !
 * If you're building the application from the source and adding new translations make sure to include the **Translation** folder from `VtubeLighting\Assets\Translations` to `VtubeLighting_Data\Resources\Translations` after exporting. Also The KlakSpout library used to handle Spout2 is stored directly inside the project folder instead of the usual path because I had to fix a bug for newer Unity versions.
