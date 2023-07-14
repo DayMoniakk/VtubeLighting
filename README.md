@@ -47,13 +47,12 @@ Click **OK** and **Start Virtual Camera**.
 
 10. Once you are happy with the results it's time to send back your vtuber avatar to OBS, there's 2 methods you can use:
 * Install the [Spout2 Plugin for OBS Studio](https://docs.offworld.live/#/obs-spout-plugin/README), add a **Spout2 Capture** in your scene and select **VtubeLighting** in **SpoutSenders**.
-* Use a **Game Capture** source, keep in mind that Spout2 is the preferred method because it doesn't produce any CPU load
+* Use a **Game Capture** source, keep in mind that Spout2 is the preferred method because it doesn't produce any CPU load.
 ## Notes
 
 * VtubeLighting supports transparency, so if your OBS Scene has transparency in it you will get it back.
 * The application is built in `Unity 2022.3.4f1` using the built-in render pipeline and the shadergraph, feel free to modify the VtubeLighting !
-* If you're building the application from the source and adding new translations make sure to include the **Translation** folder from `VtubeLighting\Assets\Translations` to `VtubeLighting_Data\Resources` after exporting.
-
+* If you're building the application from the source and adding new translations make sure to include the **Translation** folder from `VtubeLighting\Assets\Translations` to `VtubeLighting_Data\Resources` after exporting. Also The KlakSpout library used to handle Spout2 is stored directly inside the project folder instead of the usual path because I had to fix a bug for newer Unity versions.
 ## Credits
 
 * VtubeLighting wouldn't exits without [KlakSpout](https://github.com/keijiro/KlakSpout) created by [Keijiro Takahashi](https://github.com/keijiro).
