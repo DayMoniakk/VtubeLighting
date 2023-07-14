@@ -1,0 +1,32 @@
+{
+    "LANGUAGE_NAME": "Français",
+
+    "header.app_settings": "Options de l'application",
+    "app.language": "Langue",
+    "app.resolution": "Résolution",
+    "app.max_fps": "IPS Max",
+
+    "header.lighting_setup": "Mise en place de l'éclairage",
+    "lighting_setup.avatar_source": "Source de l'avatar",
+    "lighting_setup.light_source": "Source de la lumière",
+    "lighting_setup.start_lighting": "Activer l'éclairage",
+    "lighting_setup.stop_lighting" : "Désactiver l'éclairage",
+
+    "header.lighting_settings": "Options de l'éclairage",
+    "lighting_settings.light_intensity": "Intensité de l'éclairage",
+    "lighting_settings.light_blurring": "Floutage de l'éclairage",
+
+    "help.tutorial": "Tutoriel / Comment Utiliser",
+
+    "generic.none": "Aucun",
+    "generic.no_devices_found": "Aucun périphériques trouvés",
+
+    "warning.no_signal": "Aucune source Spout2 valide selectionnée dans \"Source de l'avatar\"",
+
+    "hint.close_window": "Appuyez sur \"Echap\" pour fermer/ouvrir cette fenêtre",
+
+    "updater.header": "Nouvelle Version Disponible",
+    "updater.info": "Une nouvelle version est disponible pour VtubeLighting !\n\n<size=70%> Mettre à jour l'application est très important afin d'être sûr de ne rencontrer aucun bug.\n\n\nPour installer la nouvelle version cliquez sur le bouton vert et fermez l'application. Après le téléchargement vous pourrez supprimer l'ancien dossier.",
+    "updater.button_open_url": "Ouvrir le lien de téléchargement",
+    "updater.button_close": "Fermer"
+}
