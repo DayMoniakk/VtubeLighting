@@ -10,7 +10,7 @@ Spout2 powered Vtubing application to implement screen lighting without these an
 
 ## Features
 
-- Lightweight (around 5% CPU usage on my Ryzen 5 3600 and 130MB of ram usage)
+- Lightweight (around 5% CPU usage on my Ryzen 5 3600 and 160MB of ram usage)
 - No distracting yellow borders around the window
 - The user interface is invisible in your streaming software
 - 100% Open Source & 100% Free, FOREVER
