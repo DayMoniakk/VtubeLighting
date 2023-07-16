@@ -17,6 +17,8 @@ public class VirtualWebcamCapture : MonoBehaviour
     [SerializeField] private Button btnStartCapture; // The button to start the lighting effect
     [SerializeField] private Button btnStopCapture; // The button to stop the lighting effect
     [SerializeField] private Button btnRefreshWebcams; // The button to refresh the webcam list in the deviceDropdown
+    [SerializeField] private Slider sliderLightOpacity; // The slider that allows the user to control the light opacity on the avatar
+    [SerializeField] private TMP_InputField sliderLightOpacityField; // The InputField that allows the user to type a value to control the light opacity on the avatar
     [SerializeField] private Slider sliderLightIntensity; // The slider that allows the user to control the lighting intensity
     [SerializeField] private TMP_InputField sliderLightIntensityField; // The InputField that allows the user to type a value to control the lighting intensity
     [SerializeField] private Slider sliderLightUpdate; // The slider that allows the user to control the blurriness of the background
@@ -52,6 +54,14 @@ public class VirtualWebcamCapture : MonoBehaviour
         RefreshWebcamsList();
 
         // Here i'm just setting up all the UI callbacks so I don't have to drag and drop every events by hand
+        sliderLightOpacity.onValueChanged.AddListener(value => 
+        {
+            spoutDisplayImage.material.SetFloat("_LightOpacity", value);
+            sliderLightOpacityField.text = value.ToString("F2");
+        });
+        sliderLightOpacityField.onValueChanged.AddListener(value => { sliderLightOpacity.value = float.Parse(value); });
+        sliderLightOpacityField.onEndEdit.AddListener(value => { sliderLightOpacityField.text = sliderLightOpacity.value.ToString("F2"); });
+
         sliderLightIntensity.onValueChanged.AddListener(value =>
         {
             spoutDisplayImage.material.SetFloat("_LightIntensity", value);
@@ -223,6 +233,8 @@ public class VirtualWebcamCapture : MonoBehaviour
         {
             btnStartCapture.interactable = false;
             btnStopCapture.interactable = false;
+            sliderLightOpacity.interactable = false;
+            sliderLightOpacityField.interactable = false;
             sliderLightIntensity.interactable = false;
             sliderLightIntensityField.interactable = false;
             sliderLightUpdate.interactable = false;
@@ -233,6 +245,8 @@ public class VirtualWebcamCapture : MonoBehaviour
 
         btnStartCapture.interactable = !webcamRunning;
         btnStopCapture.interactable = webcamRunning;
+        sliderLightOpacity.interactable = webcamRunning;
+        sliderLightOpacityField.interactable = webcamRunning;
         sliderLightIntensity.interactable = webcamRunning;
         sliderLightIntensityField.interactable = webcamRunning;
         sliderLightUpdate.interactable = webcamRunning;
