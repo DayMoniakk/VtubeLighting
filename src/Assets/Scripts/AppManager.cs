@@ -33,6 +33,10 @@ public class AppManager : MonoBehaviour
         languageLoadedCorrectly = translationsManager.HandleStartupLanguage(saveData.languageIndex, saveData.languageName);
     }
 
+    public SaveData GetSavedData() => saveData;
+    public void SaveData() => saveManager.Save(saveData);
+    public void SaveData(SaveData saveData) => saveManager.Save(saveData);
+
     private void Start()
     {
         List<Resolution> screenResolutions = GetResolutions();

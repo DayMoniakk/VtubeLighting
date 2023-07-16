@@ -13,8 +13,8 @@
     "lighting_setup.stop_lighting" : "Désactiver l'éclairage",
 
     "header.lighting_settings": "Options de l'éclairage",
-    "lighting_settings.light_intensity": "Intensité de l'éclairage",
-    "lighting_settings.light_blurring": "Floutage de l'éclairage",
+    "lighting_settings.light_intensity": "Intensité",
+    "lighting_settings.light_update_rate": "Fréquence de mise à jour",
 
     "help.tutorial": "Tutoriel / Comment Utiliser",
 

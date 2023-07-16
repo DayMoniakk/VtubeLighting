@@ -13,8 +13,8 @@
     "lighting_setup.stop_lighting" : "Stop Lighting",
 
     "header.lighting_settings": "Lighting Settings",
-    "lighting_settings.light_intensity": "Light Intensity",
-    "lighting_settings.light_blurring": "Light Blurring",
+    "lighting_settings.light_intensity": "Intensity",
+    "lighting_settings.light_update_rate": "Update Rate",
 
     "help.tutorial": "Tutorial / How To Use",
 

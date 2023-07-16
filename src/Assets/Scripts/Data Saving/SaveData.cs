@@ -6,4 +6,5 @@ public class SaveData
     public int resolutionWidth = 1280;
     public int resolutionHeight = 720;
     public int maxFps = 60;
+    public float lightingRefreshRate = 8;
 }
