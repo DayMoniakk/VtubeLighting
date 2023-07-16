@@ -3,6 +3,8 @@
 
 Spout2 powered Vtubing application to implement screen lighting without these annoying yellow borders !
 
+**Une version Française de ces informations sera disponible prochainement**
+
 <img src="screenshots/Screenshot_01.png" width="45%"></img> 
 <img src="screenshots/Screenshot_02.png" width="45%"></img> 
 <img src="screenshots/Screenshot_03.png" width="45%"></img> 
@@ -19,6 +21,7 @@ Spout2 powered Vtubing application to implement screen lighting without these an
 * A Vtubing software compatible with Spout2 (Vtube Studio, VSeeFace, ...)
 * A streaming software compatible with Spout2 (OBS Studio with 3rd party plugin)
 * A DirectX 11 or 12 compatible graphic card
+* VtubeLighting requires the use of the OBS Virtual Camera so you won't be able to use it for anything else, but it's not a big deal since move vtuber apps have support for virtual cameras
 
 ## Setup
 
