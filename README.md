@@ -43,16 +43,15 @@ Click **OK** and **Start Virtual Camera**.
 
 7. Head back to **VtubeLighting**, in **Lighting Setup** there is an option called **Light Source**: use the refresh button and you should automatically have **OBS Virtual Camera** selected.
 
-8. Now you can finally use the **Start Lighting** button ! Your OBS scene is now visible inside the application. The last think you need to do is to increase the value of **Light Intensity** and your Avatar is now receiving lighting from OBS !
+8. Now you can finally use the **Start Lighting** button ! Your OBS scene is now visible inside the application. The last think you need to do is to increase the value of **Intensity** and your Avatar is now receiving lighting from OBS !
 
-9. You can play around with the **Light Blurring** options to get different results, this has a small cost on performance but don't worry it's not that bad.
+9. You also have a setting called **Update Rate**, this is simply how often the lighting is updated, by default it's 8 so the lighting is update 8 times per second. The highest the value is the best is the effect but the performance cost increases.
 
 10. Once you are happy with the results it's time to send back your vtuber avatar to OBS, there's 2 methods you can use:
 * Install the [Spout2 Plugin for OBS Studio](https://docs.offworld.live/#/obs-spout-plugin/README), add a **Spout2 Capture** in your scene and select **VtubeLighting** in **SpoutSenders**.
 * Use a **Game Capture** source, keep in mind that Spout2 is the preferred method because it doesn't produce any CPU load.
 ## Notes
 
-* Due to my poor shader knowledge your Vtuber avatar will become a bit see-through because I'm just overlaying the image from OBS onto your avatar
 * VtubeLighting supports transparency, so if your OBS Scene has transparency in it you will get it back.
 * The application is built in `Unity 2022.3.4f1` using the built-in render pipeline and the shadergraph, feel free to modify the VtubeLighting !
 * If you're building the application from the source and adding new translations make sure to include the **Translation** folder from `VtubeLighting\Assets\Translations` to `VtubeLighting_Data\Resources\Translations` after exporting. Also The KlakSpout library used to handle Spout2 is stored directly inside the project folder instead of the usual path because I had to fix a bug for newer Unity versions.
