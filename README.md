@@ -3,8 +3,6 @@
 
 Spout2 powered Vtubing application to implement screen lighting without these annoying yellow borders !
 
-**Une version Française de ces informations sera disponible prochainement**
-
 <img src="screenshots/Screenshot_01.png" width="45%"></img> 
 <img src="screenshots/Screenshot_02.png" width="45%"></img> 
 <img src="screenshots/Screenshot_03.png" width="45%"></img> 
@@ -27,9 +25,9 @@ Spout2 powered Vtubing application to implement screen lighting without these an
 
 Don't be affraid if the following steps seems difficult, once everything is setup this will be easier =)
 
-If you prefer a video tutorial instead of reading this, feel free to watch [this video]() !
+If you prefer a video tutorial instead of reading this, feel free to watch [this video](https://www.youtube.com/watch?v=023tl29R6YA) !
 
-1. Download **VtubeLighting** from [Github Releases](https://github.com/DayMoniakk/VtubeLighting/releases) or [Itch.io](https://daymoniakk.itch.io/)
+1. Download **VtubeLighting** from [Github Releases](https://github.com/DayMoniakk/VtubeLighting/releases)
 
 2. Open **VtubeLighting**
 
@@ -46,12 +44,12 @@ Click **OK** and **Start Virtual Camera**.
 
 7. Head back to **VtubeLighting**, in **Lighting Setup** there is an option called **Light Source**: use the refresh button and you should automatically have **OBS Virtual Camera** selected.
 
-8. Now you can finally use the **Start Lighting** button ! Your OBS scene is now visible inside the application. The last think you need to do is to increase the value of **Opacity** and your Avatar is now receiving lighting from OBS ! You can control how much lighting you want from the OBS scene using the **Intensity** slider.
+8. Now you can finally use the **Start Lighting** button ! Your OBS scene is now visible inside the application. The last thing you need to do is to increase the value of **Opacity** and your Avatar is now receiving lighting from OBS ! You can control how much lighting you want from the OBS scene using the **Intensity** slider.
 
 9. You also have a setting called **Update Rate**, this is simply how often the lighting is updated, by default it's 8 so the lighting is update 8 times per second. The highest the value is the best is the effect but the performance cost increases.
 
 10. Once you are happy with the results it's time to send back your vtuber avatar to OBS, there's 2 methods you can use:
-* Install the [Spout2 Plugin for OBS Studio](https://docs.offworld.live/#/obs-spout-plugin/README), add a **Spout2 Capture** in your scene and select **VtubeLighting** in **SpoutSenders**.
+* Install the [Spout2 Plugin for OBS Studio](https://docs.offworld.live/#/obs-spout-plugin/README), add a **Spout2 Capture** in your streaming scene and select **VtubeLighting** in **SpoutSenders**.
 * Use a **Game Capture** source, keep in mind that Spout2 is the preferred method because it doesn't produce any CPU load.
 ## Notes
 
@@ -96,4 +94,4 @@ You can duplicate the `english.json` file inside `VtubeLighting_Data\Resources` 
 
 ### Other questions or issues ?
 
-Feel free to post in [discussions](https://github.com/DayMoniakk/VtubeLighting/discussions) if you have a Github account, if not you can also create a post in the [Itch.io page]() !
+Feel free to post in [discussions](https://github.com/DayMoniakk/VtubeLighting/discussions) if you have a Github account, if not you can also send me a message on my [Twitter](https://twitter.com/DayMoniakk) !
