@@ -46,7 +46,7 @@ Click **OK** and **Start Virtual Camera**.
 
 7. Head back to **VtubeLighting**, in **Lighting Setup** there is an option called **Light Source**: use the refresh button and you should automatically have **OBS Virtual Camera** selected.
 
-8. Now you can finally use the **Start Lighting** button ! Your OBS scene is now visible inside the application. The last think you need to do is to increase the value of **Intensity** and your Avatar is now receiving lighting from OBS !
+8. Now you can finally use the **Start Lighting** button ! Your OBS scene is now visible inside the application. The last think you need to do is to increase the value of **Opacity** and your Avatar is now receiving lighting from OBS ! You can control how much lighting you want from the OBS scene using the **Intensity** slider.
 
 9. You also have a setting called **Update Rate**, this is simply how often the lighting is updated, by default it's 8 so the lighting is update 8 times per second. The highest the value is the best is the effect but the performance cost increases.
 
