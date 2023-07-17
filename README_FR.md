@@ -48,7 +48,7 @@ Dans Vtube Studio ouvrez le menu, cliquez sur **l'icone de caméra** and descend
 
 9. Vous avez aussi une option appelée **Fréquence de mise à jour**, c'est simplement pour contrôler combiens de fois par secondes la lumière doit être recalculée. Plus haute est la valeur mieux sera l'effet mais pire seront les performances.
 
-10.Une fois que vous êtes content du résultat il est temps de renvoyer l'avatar dans OBS, vous avez 2 méthodes au choix:
+10. Une fois que vous êtes content du résultat il est temps de renvoyer l'avatar dans OBS, vous avez 2 méthodes au choix:
 * Installez le plugin [Spout2 Plugin for OBS Studio](https://docs.offworld.live/#/obs-spout-plugin/README), ajoutez une **Spout2 Capture** dans votre scène de stream et selectionnez **VtubeLighting** dans **SpoutSenders**.
 * Utilisez une **Capture de jeu**, gardez en tête que la méthode Spout2 est préférée car elle n'utilise aucune ressource processeur.
   
