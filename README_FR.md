@@ -59,7 +59,7 @@ Dans Vtube Studio ouvrez le menu, cliquez sur **l'icone de caméra** and descend
 * Si vous prévoyez de modifier l'application faites attention à inclure les traductions du dossier `VtubeLighting\Assets\Translations` à `VtubeLighting_Data\Resources\Translations` après avoir exporté. Au passage, la librairie KlakSpout utilisée pour gérer Spout2 est directement sotckée dans les fichier du projet au lieu de l'endroit habituel car j'ai dû fixer un bug lié aux nouvelles versions de Unity.
 ## Credits
 
-* VtubeLighting n'existerais pas sans [KlakSpout](https://github.com/keijiro/KlakSpout) crée par [Keijiro Takahashi](https://github.com/keijiro).
+* VtubeLighting n'existerait pas sans [KlakSpout](https://github.com/keijiro/KlakSpout) crée par [Keijiro Takahashi](https://github.com/keijiro).
 * La police d'écriture [Montserrat](https://github.com/JulietaUla/Montserrat) crée par [JulietaUla](https://github.com/JulietaUla)
 * [Unity Engine](https://unity.com/) et son fameux splash screen obligatoire =p
 * Logo par [Bing AI](https://www.bing.com/?/ai) (il m'a dit qu'il apprécierait d'être crédité =D)
