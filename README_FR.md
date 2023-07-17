@@ -27,7 +27,6 @@ Application pour Vtubers permettant d'implémenter l'éclairage de l'écran sur 
 
 N'ayez pas peur si les instructions suivantes ont l'air compliqué, une fois tout paramétré correctement ça sera plus facile =)
 
-If you prefer a video tutorial instead of reading this, feel free to watch [this video]() !
 Si vous préferez regarder un tutoriel vidéo au lieu de lire tout ça vous pouvez regarder [cette vidéo](https://www.youtube.com/watch?v=023tl29R6YA)
 
 1. Téléchargez **VtubeLighting** depuis [Github Releases](https://github.com/DayMoniakk/VtubeLighting/releases)
