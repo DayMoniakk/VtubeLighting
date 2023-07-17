@@ -1,25 +1,29 @@
 using System.IO;
 using UnityEngine;
 
-public class SaveManager : MonoBehaviour
+namespace VtubeLighting.Saving
 {
-    private const string fileName = "/app_settings.json";
 
-    public SaveData Load()
+    public class SaveManager : MonoBehaviour
     {
-        string filePath = Application.persistentDataPath + fileName;
-        SaveData saveData = new();
+        private const string fileName = "/app_settings.json";
 
-        if (File.Exists(filePath)) saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(filePath));
-        else Save(new(), filePath);
+        public SaveData Load()
+        {
+            string filePath = Application.persistentDataPath + fileName;
+            SaveData saveData = new();
 
-        return saveData;
-    }
+            if (File.Exists(filePath)) saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(filePath));
+            else Save(new(), filePath);
 
-    public void Save(SaveData saveFile, string filePath) => File.WriteAllText(filePath, JsonUtility.ToJson(saveFile));
-    public void Save(SaveData saveFile)
-    {
-        string filePath = Application.persistentDataPath + fileName;
-        File.WriteAllText(filePath, JsonUtility.ToJson(saveFile));
+            return saveData;
+        }
+
+        public void Save(SaveData saveFile, string filePath) => File.WriteAllText(filePath, JsonUtility.ToJson(saveFile));
+        public void Save(SaveData saveFile)
+        {
+            string filePath = Application.persistentDataPath + fileName;
+            File.WriteAllText(filePath, JsonUtility.ToJson(saveFile));
+        }
     }
 }

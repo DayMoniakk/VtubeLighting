@@ -1,32 +1,35 @@
 using UnityEngine;
 using TMPro;
 
-public class TranslationText : MonoBehaviour
+namespace VtubeLighting.Translation
 {
-    [SerializeField] private string translationKey;
-    [SerializeField] private TMP_Text text;
-
-    private void Reset() => text = GetComponent<TMP_Text>();
-
-    private void Awake()
+    public class TranslationText : MonoBehaviour, ITranslation
     {
-        TranslationsManager.Instance.AddTextReference(this);
-    }
+        [SerializeField] private string translationKey;
+        [SerializeField] private TMP_Text text;
 
-    private void Start()
-    {
-        // Idk why but this fix the bug where the warning text is not localized if no Spout2 source are available when lauching the app
-        if (translationKey == "warning.no_signal") RefreshLanguage(FindObjectOfType<TranslationsManager>());
-    }
+        private void Reset() => text = GetComponent<TMP_Text>();
 
-    public void RefreshLanguage(TranslationsManager translationsManager)
-    {
-        if (translationKey == "")
+        private void Awake()
         {
-            Debug.LogWarning("No translation key has been set for " + gameObject.name, gameObject);
-            return;
+            TranslationsManager.Instance.AddTextReference(this);
         }
 
-        text.text = translationsManager.GetTranslation(translationKey);
+        private void Start()
+        {
+            // Idk why but this fix the bug where the warning text is not localized if no Spout2 source are available when lauching the app
+            if (translationKey == "warning.no_signal") RefreshLanguage(FindObjectOfType<TranslationsManager>());
+        }
+
+        public void RefreshLanguage(TranslationsManager translationsManager)
+        {
+            if (translationKey == "")
+            {
+                Debug.LogWarning("No translation key has been set for " + gameObject.name, gameObject);
+                return;
+            }
+
+            text.text = translationsManager.GetTranslation(translationKey);
+        }
     }
 }

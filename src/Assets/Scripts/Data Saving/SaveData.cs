@@ -1,10 +1,13 @@
-[System.Serializable]
-public class SaveData
+namespace VtubeLighting.Saving
 {
-    public int languageIndex = 0;
-    public string languageName = "English";
-    public int resolutionWidth = 1280;
-    public int resolutionHeight = 720;
-    public int maxFps = 60;
-    public float lightingRefreshRate = 8;
+    [System.Serializable]
+    public class SaveData
+    {
+        public int languageIndex = 0;
+        public string languageName = "English";
+        public int resolutionWidth = 1280;
+        public int resolutionHeight = 720;
+        public int maxFps = 60;
+        public float lightingRefreshRate = 8;
+    }
 }

@@ -1,46 +1,49 @@
 using System.Net.Http;
 using UnityEngine;
 
-public class AppUpdater : MonoBehaviour
+namespace VtubeLighting.Core
 {
-    [Header("Settings")]
-    [SerializeField] private string appVersion = "1.0.0";
-    [SerializeField] private string versionUrl = "https://raw.githubusercontent.com/DayMoniakk/VtubeLighting/main/VERSION";
-
-    [Header("References")]
-    [SerializeField] private GameObject updatePanel;
-
-    private void Awake()
+    public class AppUpdater : MonoBehaviour
     {
-        CheckForUpdate();
-    }
+        [Header("Settings")]
+        [SerializeField] private string appVersion = "1.0.0";
+        [SerializeField] private string versionUrl = "https://raw.githubusercontent.com/DayMoniakk/VtubeLighting/main/VERSION";
 
-    private void CheckForUpdate()
-    {
-        if (string.IsNullOrEmpty(versionUrl)) return;
+        [Header("References")]
+        [SerializeField] private GameObject updatePanel;
 
-        string result = "";
-
-        try
+        private void Awake()
         {
-            using HttpClient client = new();
-            result = client.GetStringAsync(versionUrl).Result;
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError("Updater cannot read app version from URL. Stacktrace: " + e.StackTrace);
+            CheckForUpdate();
         }
 
-        if (result != "")
+        private void CheckForUpdate()
         {
-            if (!result.Contains(appVersion))
+            if (string.IsNullOrEmpty(versionUrl)) return;
+
+            string result = "";
+
+            try
             {
-                updatePanel.SetActive(true);
-                Debug.Log("A newest version is available, current=" + appVersion + " newest=" + result);
+                using HttpClient client = new();
+                result = client.GetStringAsync(versionUrl).Result;
             }
-            else Debug.Log("The application version is up to date");
-        }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Updater cannot read app version from URL. Stacktrace: " + e.StackTrace);
+            }
 
-        Destroy(this);
+            if (result != "")
+            {
+                if (!result.Contains(appVersion))
+                {
+                    updatePanel.SetActive(true);
+                    Debug.Log("A newest version is available, current=" + appVersion + " newest=" + result);
+                }
+                else Debug.Log("The application version is up to date");
+            }
+
+            Destroy(this);
+        }
     }
 }
