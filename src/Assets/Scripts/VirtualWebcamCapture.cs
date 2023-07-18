@@ -183,6 +183,7 @@ namespace VtubeLighting.Core
                 spoutDisplayImage.material = spoutMat;
                 spoutMat.SetTexture("_MainTex", spoutDisplayImage.texture);
                 spoutMat.SetTexture("_VirtualWebcamTex", lightingTextureResized);
+                spoutMat.SetFloat("_LightOpacity", sliderLightOpacity.value);
                 spoutMat.SetFloat("_LightIntensity", sliderLightIntensity.value);
 
                 // Getting rid of the placeholder background and displaying the webcam source
