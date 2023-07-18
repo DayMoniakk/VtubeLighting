@@ -48,12 +48,15 @@ Click **OK** and **Start Virtual Camera**.
 
 9. You also have a setting called **Update Rate**, this is simply how often the lighting is updated, by default it's 8 so the lighting is update 8 times per second. The highest the value is the best is the effect but the performance cost increases.
 
-10. Once you are happy with the results it's time to send back your vtuber avatar to OBS, there's 2 methods you can use:
-* Install the [Spout2 Plugin for OBS Studio](https://docs.offworld.live/#/obs-spout-plugin/README), add a **Spout2 Capture** in your streaming scene and select **VtubeLighting** in **SpoutSenders**.
-* Use a **Game Capture** source, keep in mind that Spout2 is the preferred method because it doesn't produce any CPU load.
+10. Once you are happy with the results it's time to send back your vtuber avatar to OBS.
+Install the [Spout2 Plugin for OBS Studio](https://docs.offworld.live/#/obs-spout-plugin/README), add a **Spout2 Capture** in your streaming scene and select **VtubeLighting** in **SpoutSenders**.
+Also change **Composite Mode** from Opaque to **Default**, if you don't do that you will just get your avatar with a black background instead of a transparent background.
+
+11. Last step is to add your lighting scene into your streaming scene, VtubeLighting only returns the avatar, not what you send to it. Just click the **plus icon**, click on **Scene** and select your lighting scene.
+This will display the content of the lighting scene into your streaming scene.
+
 ## Notes
 
-* VtubeLighting supports transparency, so if your OBS Scene has transparency in it you will get it back.
 * The application is built in `Unity 2022.3.4f1` using the built-in render pipeline and the shadergraph, feel free to modify the VtubeLighting !
 * If you're building the application from the source and adding new translations make sure to include the **Translation** folder from `VtubeLighting\Assets\Translations` to `VtubeLighting_Data\Resources\Translations` after exporting. Also The KlakSpout library used to handle Spout2 is stored directly inside the project folder instead of the usual path because I had to fix a bug for newer Unity versions.
 ## Credits
