@@ -52,10 +52,7 @@ Dans Vtube Studio ouvrez le menu, cliquez sur **l'icone de caméra** and descend
 Installez le plugin [Spout2 Plugin for OBS Studio](https://docs.offworld.live/#/obs-spout-plugin/README), ajoutez une **Spout2 Capture** dans votre scène de stream et selectionnez **VtubeLighting** dans **SpoutSenders**.
 N'oubliez pas de changer **Composite Mode** en **Default**, si vous ne le faites pas vous aurez juste votre avatar avec un fond noir au lieu d'avoir un arrière plan transparent.
 
-11. Last step is to add your lighting scene into your streaming scene, VtubeLighting only returns the avatar, not what you send to it. Just click the **plus icon**, click on **Scene** and select your lighting scene.
-This will display the content of the lighting scene into your streaming scene.
-
-La dernière étape est d'ajouter votre scènje d'éclairage à votre scène de stream, VtubeLighting renvoie uniquement l'avatar, pas la scène que vous lui envoyez. Cliquez sur **l'icone plus**, cliquez ensuite sur **Scène** et selectionnez votre scène d'éclairage. Cela permet d'afficher tout le contenu de votre scène d'éclairage dans la scène de stream.
+11. La dernière étape est d'ajouter votre scènje d'éclairage à votre scène de stream, VtubeLighting renvoie uniquement l'avatar, pas la scène que vous lui envoyez. Cliquez sur **l'icone plus**, cliquez ensuite sur **Scène** et selectionnez votre scène d'éclairage. Cela permet d'afficher tout le contenu de votre scène d'éclairage dans la scène de stream.
 
 ## Notes
 
