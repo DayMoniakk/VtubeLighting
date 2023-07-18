@@ -48,13 +48,17 @@ Dans Vtube Studio ouvrez le menu, cliquez sur **l'icone de caméra** and descend
 
 9. Vous avez aussi une option appelée **Fréquence de mise à jour**, c'est simplement pour contrôler combiens de fois par secondes la lumière doit être recalculée. Plus haute est la valeur mieux sera l'effet mais pire seront les performances.
 
-10. Une fois que vous êtes content du résultat il est temps de renvoyer l'avatar dans OBS, vous avez 2 méthodes au choix:
-* Installez le plugin [Spout2 Plugin for OBS Studio](https://docs.offworld.live/#/obs-spout-plugin/README), ajoutez une **Spout2 Capture** dans votre scène de stream et selectionnez **VtubeLighting** dans **SpoutSenders**.
-* Utilisez une **Capture de jeu**, gardez en tête que la méthode Spout2 est préférée car elle n'utilise aucune ressource processeur.
-  
+10. Une fois que vous êtes content du résultat il est temps de renvoyer l'avatar dans OBS.
+Installez le plugin [Spout2 Plugin for OBS Studio](https://docs.offworld.live/#/obs-spout-plugin/README), ajoutez une **Spout2 Capture** dans votre scène de stream et selectionnez **VtubeLighting** dans **SpoutSenders**.
+N'oubliez pas de changer **Composite Mode** en **Default**, si vous ne le faites pas vous aurez juste votre avatar avec un fond noir au lieu d'avoir un arrière plan transparent.
+
+11. Last step is to add your lighting scene into your streaming scene, VtubeLighting only returns the avatar, not what you send to it. Just click the **plus icon**, click on **Scene** and select your lighting scene.
+This will display the content of the lighting scene into your streaming scene.
+
+La dernière étape est d'ajouter votre scènje d'éclairage à votre scène de stream, VtubeLighting renvoie uniquement l'avatar, pas la scène que vous lui envoyez. Cliquez sur **l'icone plus**, cliquez ensuite sur **Scène** et selectionnez votre scène d'éclairage. Cela permet d'afficher tout le contenu de votre scène d'éclairage dans la scène de stream.
+
 ## Notes
 
-* VtubeLighting supporte la  transparence, donc si vous avez des élémens transparents dans votre scène OBS ça sera conservé.
 * L'application est crée avec `Unity 2022.3.4f1` en utilisant la built-in render pipeline et le shadergraph, n'hésitez pas à modifier VtubeLighting !
 * Si vous prévoyez de modifier l'application faites attention à inclure les traductions du dossier `VtubeLighting\Assets\Translations` à `VtubeLighting_Data\Resources\Translations` après avoir exporté. Au passage, la librairie KlakSpout utilisée pour gérer Spout2 est directement sotckée dans les fichier du projet au lieu de l'endroit habituel car j'ai dû fixer un bug lié aux nouvelles versions de Unity.
 ## Credits
