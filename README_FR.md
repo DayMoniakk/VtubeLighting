@@ -40,7 +40,7 @@ Dans Vtube Studio ouvrez le menu, cliquez sur **l'icone de caméra** and descend
 
 5. Maintenant que nous avons l'avatar dans le logiciel il est temps de s'occuper de l'éclairage ! Lancez OBS Studio, créez une **nouvelle scène**, cette scène est responsable d'illuminer votre avatar. Tout ce que vous mettrez dedans influencera l'éclairage, par exemple vous pouvez mettre votre **Capture de jeu** dedans.
 
-6. Maintenant regardez en bas à droite de OBS, il y a un bouton appelé **Demarrer la caméra virtuelle**: cliquez sur **l'icone de roue crantée** à côté. Dans **Type de sortie** séléectionnez **Scène** et dans **Sélection de sortie** sélectionnez la scène que vous venez de créer. Cliquez **OK** et **Démarrer la caméra virtuelle**.
+6. Maintenant regardez en bas à droite de OBS, il y a un bouton appelé **Demarrer la caméra virtuelle**: cliquez sur **l'icone de roue crantée** à côté. Dans **Type de sortie** sélectionnez **Scène** et dans **Sélection de sortie** sélectionnez la scène que vous venez de créer. Cliquez **OK** et **Démarrer la caméra virtuelle**.
 
 7. Retournez dans **VtubeLighting**, dans **Mise en place de l'éclairage** il y a une option appelée **Source de la lumière** : utilisez le bouton rafraichir et vous aurez automatiquement **OBS Virtual Camera** de selectionné.
 
