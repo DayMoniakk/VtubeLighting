@@ -25,7 +25,7 @@ Spout2 powered Vtubing application to implement screen lighting without these an
 
 Don't be affraid if the following steps seems difficult, once everything is setup this will be easier =)
 
-If you prefer a video tutorial instead of reading this, feel free to watch [this video](https://www.youtube.com/watch?v=023tl29R6YA) !
+If you prefer a video tutorial instead of reading this, feel free to watch [this video](https://www.youtube.com/watch?v=pWsY_gw2hio) ! (Only in french language at the moment)
 
 1. Download **VtubeLighting** from [Github Releases](https://github.com/DayMoniakk/VtubeLighting/releases)
 
