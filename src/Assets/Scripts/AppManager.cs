@@ -1,46 +1,41 @@
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
 using System;
-using VtubeLighting.Translation;
-using VtubeLighting.Saving;
-using VtubeLighting.Tooltips;
-
-// This class handles the behaviour of the app itself
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using VtubeLighting.Serialization;
 
 namespace VtubeLighting.Core
 {
     public class AppManager : MonoBehaviour
     {
+        public enum AppState 
+        {
+            Idle,
+            SavingPreset,
+            DeletingPreset
+        }
+
         [Header("UI References")]
         [SerializeField] private GameObject sidebar;
         [SerializeField] private TMP_Dropdown resolutionDropdown;
         [SerializeField] private TMP_Dropdown maxFpsDropdown;
-        [SerializeField] private TMP_Dropdown languageDropdown;
 
         [Header("Script References")]
-        [SerializeField] private TranslationsManager translationsManager;
         [SerializeField] private SaveManager saveManager;
 
-        private bool sidebarVisible = true, languageLoadedCorrectly;
-
+        private bool sidebarVisible = true;
         private SaveData saveData;
+        private AppState state = AppState.Idle;
 
-        private void Reset() // Used when the script is added to the gameobject (utility only)
+        private void Reset()
         {
-            translationsManager = FindObjectOfType<TranslationsManager>();
             saveManager = FindObjectOfType<SaveManager>();
         }
 
         private void Awake()
         {
             saveData = saveManager.Load();
-            languageLoadedCorrectly = translationsManager.HandleStartupLanguage(saveData.languageIndex, saveData.languageName);
         }
-
-        public SaveData GetSavedData() => saveData;
-        public void SaveData() => saveManager.Save(saveData);
-        public void SaveData(SaveData saveData) => saveManager.Save(saveData);
 
         private void Start()
         {
@@ -94,31 +89,21 @@ namespace VtubeLighting.Core
             QualitySettings.vSyncCount = 0;
             Application.targetFrameRate = GetMaxFps(maxFpsDropdown.value);
 
-            languageDropdown.ClearOptions();
-            languageDropdown.AddOptions(translationsManager.GetLanguagesList());
-
-            languageDropdown.onValueChanged.AddListener(index =>
-            {
-                translationsManager.SetLanguage(index);
-                saveData.languageIndex = index;
-                saveData.languageName = translationsManager.GetTranslation("LANGUAGE_NAME");
-                saveManager.Save(saveData);
-            });
-
-            if (languageLoadedCorrectly) languageDropdown.value = saveData.languageIndex;
-
             sidebar.SetActive(true);
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && state == AppState.Idle)
             {
                 sidebarVisible = !sidebarVisible;
                 sidebar.SetActive(sidebarVisible);
-                TooltipManager.Hide();
             }
         }
+
+        public SaveData GetSavedData() => saveData;
+        public void SaveData() => saveManager.Save(saveData);
+        public void SaveData(SaveData saveData) => saveManager.Save(saveData);
 
         private int GetMaxFps(int index)
         {
@@ -129,6 +114,8 @@ namespace VtubeLighting.Core
                 2 => 50,
                 3 => 60,
                 4 => 70,
+                5 => 90,
+                6 => 120,
                 _ => 60,
             };
         }
@@ -142,13 +129,10 @@ namespace VtubeLighting.Core
                 50 => 2,
                 60 => 3,
                 70 => 4,
+                90 => 5,
+                120 => 6,
                 _ => 0,
             };
-        }
-
-        public void OpenUrl(string url)
-        {
-            Application.OpenURL(url);
         }
 
         private List<Resolution> GetResolutions()
@@ -175,5 +159,7 @@ namespace VtubeLighting.Core
 
             return false;
         }
+
+        public void SetAppState(AppState state) => this.state = state;
     }
 }
