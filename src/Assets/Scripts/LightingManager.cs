@@ -18,21 +18,25 @@ namespace VtubeLighting.Core
         [SerializeField] private TMP_InputField sliderLightOpacityField;
         [SerializeField] private Slider sliderLightIntensity;
         [SerializeField] private TMP_InputField sliderLightIntensityField;
+        [SerializeField] private TMP_Dropdown dropdlownLightResolution;
         [SerializeField] private Slider sliderLightUpdate;
         [SerializeField] private TMP_InputField sliderLightUpdateField;
         [SerializeField] private SpoutInputManager avatarInputManager;
         [SerializeField] private SpoutInputManager lightInputManager;
+        [SerializeField] private RawImage tinyPreview;
+        [SerializeField] private GameObject tinyPreviewText;
 
         private bool lightingEnabled = false;
         private Color32[] newPixels;
         private Texture2D previousOutputTexture;
         private Texture2D lightingTextureResized; // The webcam output is copied to this texture
-        private readonly Vector2Int lightingTextureSize = new(32, 18); // The width and height of the lighting texture used to light up the avatar (we don't need a huge resolution to get lighting and it will help with performance)
+        private Vector2Int lightingTextureSize = new(32, 18); // The width and height of the lighting texture used to light up the avatar (we don't need a huge resolution to get lighting and it will help with performance)
         private float lightingUpdateRate = 8; // How many times per second should we update the lighting texture
         private float nextTimeToUpdateLighting; // Holds the next time to update the lighting texture
 
         public float LightingOpacity => sliderLightOpacity.value;
         public float LightingIntensity => sliderLightIntensity.value;
+        public int LightingResolution => dropdlownLightResolution.value;
         public float LightingUpdateRate => lightingUpdateRate;
 
         public bool IsLightingEnabled => lightingEnabled;
@@ -44,6 +48,7 @@ namespace VtubeLighting.Core
             lightingUpdateRate = value;
             sliderLightUpdate.value = value;
         }
+        public void SetLightingResolution(int index) => dropdlownLightResolution.value = index;
 
         public delegate void OnLightingStateChanged(bool state);
         public OnLightingStateChanged onLightingStateChanged;
@@ -52,6 +57,8 @@ namespace VtubeLighting.Core
         {
             avatarInputManager.onSourceUpdated += RefreshButtons;
             lightInputManager.onSourceUpdated += RefreshButtons;
+
+            dropdlownLightResolution.onValueChanged.AddListener(index => UpdateLightResolution(index));
 
             sliderLightOpacity.onValueChanged.AddListener(value =>
            {
@@ -68,6 +75,7 @@ namespace VtubeLighting.Core
             });
             sliderLightIntensityField.onValueChanged.AddListener(value => { sliderLightIntensity.value = float.Parse(value); });
             sliderLightIntensityField.onEndEdit.AddListener(value => { sliderLightIntensityField.text = sliderLightIntensity.value.ToString("F2"); });
+
 
             sliderLightUpdate.onValueChanged.AddListener(value =>
             {
@@ -110,20 +118,8 @@ namespace VtubeLighting.Core
 
             if (state)
             {
-                if (lightingTextureResized != null)
-                {
-                    Destroy(lightingTextureResized);
-                }
-
-                lightingTextureResized = new(lightingTextureSize.x, lightingTextureSize.y);
-
-                // Assigning the lighting effect shader to the Vtuber Avatar source
-                Material spoutMat = new(lightingMaterial);
-                avatarDisplayOutput.material = spoutMat;
-                spoutMat.SetTexture("_MainTex", lightingDisplay.mainTexture.ConvertToTexture2D());
-                spoutMat.SetTexture("_VirtualWebcamTex", lightingTextureResized);
-                spoutMat.SetFloat("_LightOpacity", sliderLightOpacity.value);
-                spoutMat.SetFloat("_LightIntensity", sliderLightIntensity.value);
+                RefreshResolution();
+                RefreshTinyPreview();
 
                 tempBackground.SetActive(false);
             }
@@ -131,6 +127,7 @@ namespace VtubeLighting.Core
             {
                 tempBackground.SetActive(true);
                 avatarDisplayOutput.material = null;
+                RefreshTinyPreview();
             }
         }
 
@@ -147,6 +144,7 @@ namespace VtubeLighting.Core
             if (newPixels == null || newPixels.Length != lightingTextureSize.x * lightingTextureSize.y)
             {
                 newPixels = new Color32[lightingTextureSize.x * lightingTextureSize.y];
+                Debug.Log("recalculated pixels");
             }
 
             Color32[] pixels = previousOutputTexture.GetPixels32();
@@ -165,6 +163,7 @@ namespace VtubeLighting.Core
                 }
             }
 
+            Debug.Log(lightingTextureResized.width + " x " + lightingTextureResized.height);
             lightingTextureResized.SetPixels32(newPixels);
             lightingTextureResized.Apply();
         }
@@ -181,6 +180,7 @@ namespace VtubeLighting.Core
                 sliderLightIntensityField.interactable = false;
                 sliderLightUpdate.interactable = false;
                 sliderLightUpdateField.interactable = false;
+                dropdlownLightResolution.interactable = false;
             }
             else
             {
@@ -192,7 +192,55 @@ namespace VtubeLighting.Core
                 sliderLightIntensityField.interactable = lightingEnabled;
                 sliderLightUpdate.interactable = lightingEnabled;
                 sliderLightUpdateField.interactable = lightingEnabled;
+                dropdlownLightResolution.interactable = lightingEnabled;
             }
+        }
+
+        private void UpdateLightResolution(int index)
+        {
+            Vector2Int newRes;
+
+            switch (index)
+            {
+                case 0: newRes = new(32, 18); break;
+                case 1: newRes = new(64, 36); break;
+                case 2: newRes = new(96, 54); break;
+                case 3: newRes = new(128, 72); break;
+                case 4: newRes = new(160, 90); break;
+                case 5: newRes = new(192, 108); break;
+                case 6: newRes = new(224, 126); break;
+                case 7: newRes = new(256, 144); break;
+                default: newRes = new(32, 18); break;
+            }
+
+            lightingTextureSize = newRes;
+            RefreshResolution();
+            RefreshTinyPreview();
+        }
+
+        private void RefreshResolution()
+        {
+            if (lightingTextureResized != null)
+            {
+                Destroy(lightingTextureResized);
+            }
+
+            lightingTextureResized = new(lightingTextureSize.x, lightingTextureSize.y);
+
+            // Assigning the lighting effect shader to the Vtuber Avatar source
+            Material spoutMat = new(lightingMaterial);
+            avatarDisplayOutput.material = spoutMat;
+            spoutMat.SetTexture("_MainTex", lightingDisplay.mainTexture.ConvertToTexture2D());
+            spoutMat.SetTexture("_VirtualWebcamTex", lightingTextureResized);
+            spoutMat.SetFloat("_LightOpacity", sliderLightOpacity.value);
+            spoutMat.SetFloat("_LightIntensity", sliderLightIntensity.value);
+        }
+
+        private void RefreshTinyPreview()
+        {
+            tinyPreview.texture = IsLightingEnabled ? lightingTextureResized : null;
+            tinyPreview.color = IsLightingEnabled ? Color.white : Color.black;
+            tinyPreviewText.SetActive(!IsLightingEnabled);
         }
     }
 }

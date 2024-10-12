@@ -17,6 +17,7 @@ namespace VtubeLighting.Core
 
         [Header("UI References")]
         [SerializeField] private GameObject sidebar;
+        [SerializeField] private GameObject tinyPreview;
         [SerializeField] private TMP_Dropdown resolutionDropdown;
         [SerializeField] private TMP_Dropdown maxFpsDropdown;
 
@@ -90,6 +91,7 @@ namespace VtubeLighting.Core
             Application.targetFrameRate = GetMaxFps(maxFpsDropdown.value);
 
             sidebar.SetActive(true);
+            tinyPreview.SetActive(true);
         }
 
         private void Update()
@@ -98,6 +100,7 @@ namespace VtubeLighting.Core
             {
                 sidebarVisible = !sidebarVisible;
                 sidebar.SetActive(sidebarVisible);
+                tinyPreview.SetActive(sidebarVisible);
             }
         }
 

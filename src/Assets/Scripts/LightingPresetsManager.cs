@@ -68,7 +68,7 @@ public class LightingPresetsManager : MonoBehaviour
 
         btnSaveNewPreset.onClick.AddListener(() =>
         {
-            CreatePreset(inputFieldPresetName.text, lightingManager.LightingOpacity, lightingManager.LightingIntensity, lightingManager.LightingUpdateRate);
+            CreatePreset(inputFieldPresetName.text, lightingManager.LightingResolution, lightingManager.LightingOpacity, lightingManager.LightingIntensity, lightingManager.LightingUpdateRate);
             windowNewPreset.SetActive(false);
             RefreshPresets();
             presetsDropdown.value = presets.Count - 1;
@@ -126,9 +126,9 @@ public class LightingPresetsManager : MonoBehaviour
         deletePresetBtn.interactable = presets.Count > 1 && lightingManager.IsLightingEnabled;
     }
 
-    public void CreatePreset(string name, float opacity, float intensity, float updateRate)
+    public void CreatePreset(string name, int resolutionIndex, float opacity, float intensity, float updateRate)
     {
-        presets.Add(new LightingPreset(name, opacity, intensity, updateRate));
+        presets.Add(new LightingPreset(name, resolutionIndex, opacity, intensity, updateRate));
         SaveData saveData = appManager.GetSavedData();
         saveData.lightingPresets = presets;
         appManager.SaveData();
@@ -156,6 +156,7 @@ public class LightingPresetsManager : MonoBehaviour
             RefreshPresets();
         }
 
+        lightingManager.SetLightingResolution(presets[index].resolutionIndex);
         lightingManager.SetLightingOpacity(presets[index].opacity);
         lightingManager.SetLightingIntensity(presets[index].intensity);
         lightingManager.SetLightingUpdateRate(presets[index].updateRate);
