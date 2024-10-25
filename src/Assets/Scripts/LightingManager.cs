@@ -163,7 +163,6 @@ namespace VtubeLighting.Core
                 }
             }
 
-            Debug.Log(lightingTextureResized.width + " x " + lightingTextureResized.height);
             lightingTextureResized.SetPixels32(newPixels);
             lightingTextureResized.Apply();
         }
