@@ -112,6 +112,11 @@ namespace VtubeLighting.Core
 
         private void SetLighting(bool state)
         {
+            if (lightingTextureResized != null)
+            {
+                Destroy(lightingTextureResized);
+            }
+
             lightingEnabled = state;
             onLightingStateChanged?.Invoke(state);
             RefreshButtons();
@@ -126,6 +131,13 @@ namespace VtubeLighting.Core
             else
             {
                 tempBackground.SetActive(true);
+
+                // Unity adds a UI material under the hood and crashes if we destroy it
+                if (avatarDisplayOutput.material != null && avatarDisplayOutput.material.name != "Default UI Material")
+                {
+                    Destroy(avatarDisplayOutput.material.GetTexture("_MainTex"));
+                }
+
                 avatarDisplayOutput.material = null;
                 RefreshTinyPreview();
             }
@@ -144,7 +156,7 @@ namespace VtubeLighting.Core
             if (newPixels == null || newPixels.Length != lightingTextureSize.x * lightingTextureSize.y)
             {
                 newPixels = new Color32[lightingTextureSize.x * lightingTextureSize.y];
-                Debug.Log("recalculated pixels");
+                Debug.Log("Recalculated pixels size of the lighting texture: " + lightingTextureSize.x + "x" + lightingTextureSize.y);
             }
 
             Color32[] pixels = previousOutputTexture.GetPixels32();
@@ -213,8 +225,10 @@ namespace VtubeLighting.Core
             }
 
             lightingTextureSize = newRes;
-            RefreshResolution();
-            RefreshTinyPreview();
+            //RefreshResolution();
+            //RefreshTinyPreview();
+            SetLighting(false); // <- dirty fix to prevent memory leak
+            SetLighting(true); // <-|
         }
 
         private void RefreshResolution()
