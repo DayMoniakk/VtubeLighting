@@ -6,15 +6,15 @@ namespace VtubeLighting.Serialization
         public string name = "Unamed Preset";
         public int resolutionIndex = 0;
         public float opacity = 0.0f;
-        public float intensity = 1.0f;
+        public float brightness = 1.0f;
         public float updateRate = 8.0f;
 
-        public LightingPreset(string name, int resolutionIndex, float opacity, float intensity, float updateRate)
+        public LightingPreset(string name, int resolutionIndex, float opacity, float brightness, float updateRate)
         {
             this.name = name;
             this.resolutionIndex = resolutionIndex;
             this.opacity = opacity;
-            this.intensity = intensity;
+            this.brightness = brightness;
             this.updateRate = updateRate;
         }
 

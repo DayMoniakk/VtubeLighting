@@ -68,7 +68,7 @@ public class LightingPresetsManager : MonoBehaviour
 
         btnSaveNewPreset.onClick.AddListener(() =>
         {
-            CreatePreset(inputFieldPresetName.text, lightingManager.LightingResolution, lightingManager.LightingOpacity, lightingManager.LightingIntensity, lightingManager.LightingUpdateRate);
+            CreatePreset(inputFieldPresetName.text, lightingManager.LightingResolution, lightingManager.LightingOpacity, lightingManager.LightingBrightness, lightingManager.LightingUpdateRate);
             windowNewPreset.SetActive(false);
             RefreshPresets();
             presetsDropdown.value = presets.Count - 1;
@@ -158,7 +158,7 @@ public class LightingPresetsManager : MonoBehaviour
 
         lightingManager.SetLightingResolution(presets[index].resolutionIndex);
         lightingManager.SetLightingOpacity(presets[index].opacity);
-        lightingManager.SetLightingIntensity(presets[index].intensity);
+        lightingManager.SetLightingBrightness(presets[index].brightness);
         lightingManager.SetLightingUpdateRate(presets[index].updateRate);
     }
 }

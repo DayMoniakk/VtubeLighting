@@ -1976,8 +1976,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1845640065}
   m_HandleRect: {fileID: 885775657}
   m_Direction: 0
-  m_MinValue: 1
-  m_MaxValue: 10
+  m_MinValue: 0
+  m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
@@ -5725,8 +5725,8 @@ MonoBehaviour:
   btnStopCapture: {fileID: 615850410}
   sliderLightOpacity: {fileID: 155770716}
   sliderLightOpacityField: {fileID: 1365816922}
-  sliderLightIntensity: {fileID: 252003293}
-  sliderLightIntensityField: {fileID: 22144426}
+  sliderLightBrightness: {fileID: 252003293}
+  sliderLightBrightnessField: {fileID: 22144426}
   dropdlownLightResolution: {fileID: 539800064}
   sliderLightUpdate: {fileID: 943567905}
   sliderLightUpdateField: {fileID: 172387103}
@@ -6939,7 +6939,7 @@ GameObject:
   m_Component:
   - component: {fileID: 936926873}
   m_Layer: 5
-  m_Name: Light Intensity
+  m_Name: Light Brightness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15891,7 +15891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Intensity
+  m_text: Brightness
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d694ddb29a584e4e9fe71559e6f9325, type: 2}
   m_sharedMaterial: {fileID: 1825300664069506647, guid: 4d694ddb29a584e4e9fe71559e6f9325, type: 2}

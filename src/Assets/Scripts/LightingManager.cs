@@ -16,8 +16,8 @@ namespace VtubeLighting.Core
         [SerializeField] private Button btnStopCapture;
         [SerializeField] private Slider sliderLightOpacity;
         [SerializeField] private TMP_InputField sliderLightOpacityField;
-        [SerializeField] private Slider sliderLightIntensity;
-        [SerializeField] private TMP_InputField sliderLightIntensityField;
+        [SerializeField] private Slider sliderLightBrightness;
+        [SerializeField] private TMP_InputField sliderLightBrightnessField;
         [SerializeField] private TMP_Dropdown dropdlownLightResolution;
         [SerializeField] private Slider sliderLightUpdate;
         [SerializeField] private TMP_InputField sliderLightUpdateField;
@@ -35,14 +35,14 @@ namespace VtubeLighting.Core
         private float nextTimeToUpdateLighting; // Holds the next time to update the lighting texture
 
         public float LightingOpacity => sliderLightOpacity.value;
-        public float LightingIntensity => sliderLightIntensity.value;
+        public float LightingBrightness => sliderLightBrightness.value;
         public int LightingResolution => dropdlownLightResolution.value;
         public float LightingUpdateRate => lightingUpdateRate;
 
         public bool IsLightingEnabled => lightingEnabled;
 
         public void SetLightingOpacity(float value) => sliderLightOpacity.value = value;
-        public void SetLightingIntensity(float value) => sliderLightIntensity.value = value;
+        public void SetLightingBrightness(float value) => sliderLightBrightness.value = value;
         public void SetLightingUpdateRate(float value)
         {
             lightingUpdateRate = value;
@@ -68,13 +68,13 @@ namespace VtubeLighting.Core
             sliderLightOpacityField.onValueChanged.AddListener(value => { sliderLightOpacity.value = float.Parse(value); });
             sliderLightOpacityField.onEndEdit.AddListener(value => { sliderLightOpacityField.text = sliderLightOpacity.value.ToString("F2"); });
 
-            sliderLightIntensity.onValueChanged.AddListener(value =>
+            sliderLightBrightness.onValueChanged.AddListener(value =>
             {
-                avatarDisplayOutput.material.SetFloat("_LightIntensity", value);
-                sliderLightIntensityField.text = value.ToString("F2");
+                avatarDisplayOutput.material.SetFloat("_LightBrightness", value);
+                sliderLightBrightnessField.text = value.ToString("F2");
             });
-            sliderLightIntensityField.onValueChanged.AddListener(value => { sliderLightIntensity.value = float.Parse(value); });
-            sliderLightIntensityField.onEndEdit.AddListener(value => { sliderLightIntensityField.text = sliderLightIntensity.value.ToString("F2"); });
+            sliderLightBrightnessField.onValueChanged.AddListener(value => { sliderLightBrightness.value = float.Parse(value); });
+            sliderLightBrightnessField.onEndEdit.AddListener(value => { sliderLightBrightnessField.text = sliderLightBrightness.value.ToString("F2"); });
 
 
             sliderLightUpdate.onValueChanged.AddListener(value =>
@@ -187,8 +187,8 @@ namespace VtubeLighting.Core
                 btnStopCapture.interactable = false;
                 sliderLightOpacity.interactable = false;
                 sliderLightOpacityField.interactable = false;
-                sliderLightIntensity.interactable = false;
-                sliderLightIntensityField.interactable = false;
+                sliderLightBrightness.interactable = false;
+                sliderLightBrightnessField.interactable = false;
                 sliderLightUpdate.interactable = false;
                 sliderLightUpdateField.interactable = false;
                 dropdlownLightResolution.interactable = false;
@@ -199,8 +199,8 @@ namespace VtubeLighting.Core
                 btnStopCapture.interactable = lightingEnabled;
                 sliderLightOpacity.interactable = lightingEnabled;
                 sliderLightOpacityField.interactable = lightingEnabled;
-                sliderLightIntensity.interactable = lightingEnabled;
-                sliderLightIntensityField.interactable = lightingEnabled;
+                sliderLightBrightness.interactable = lightingEnabled;
+                sliderLightBrightnessField.interactable = lightingEnabled;
                 sliderLightUpdate.interactable = lightingEnabled;
                 sliderLightUpdateField.interactable = lightingEnabled;
                 dropdlownLightResolution.interactable = lightingEnabled;
@@ -244,9 +244,9 @@ namespace VtubeLighting.Core
             Material spoutMat = new(lightingMaterial);
             avatarDisplayOutput.material = spoutMat;
             spoutMat.SetTexture("_MainTex", lightingDisplay.mainTexture.ConvertToTexture2D());
-            spoutMat.SetTexture("_VirtualWebcamTex", lightingTextureResized);
+            spoutMat.SetTexture("_LightingTexture", lightingTextureResized);
             spoutMat.SetFloat("_LightOpacity", sliderLightOpacity.value);
-            spoutMat.SetFloat("_LightIntensity", sliderLightIntensity.value);
+            spoutMat.SetFloat("_LightBrightness", sliderLightBrightness.value);
         }
 
         private void RefreshTinyPreview()
