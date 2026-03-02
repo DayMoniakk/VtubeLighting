@@ -1,5 +1,5 @@
 
-# VtubeLighting
+# VtubeLighting (⚠ Currently in the process of rewriting the app using Godot)
 
 Spout2 powered Vtubing application to implement screen lighting without these annoying yellow borders !
 
