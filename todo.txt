@@ -1,0 +1,5 @@
+- refresh btn shouldn't refresh both sources (maybe)
+- in app tutorial
+- logo (splash screen)
+- known issues:
+	* if low fps: restart OBS

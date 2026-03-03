@@ -1,0 +1,674 @@
+[gd_scene format=3 uid="uid://dtr12rior8g6a"]
+
+[ext_resource type="Shader" uid="uid://b3wyvgeq4ntpj" path="res://shaders/lighting.gdshader" id="1_1670a"]
+[ext_resource type="Texture2D" uid="uid://cdc8qhlv18dl5" path="res://sprites/checkerboard.png" id="1_awiwq"]
+[ext_resource type="Script" uid="uid://bdebpqg674xae" path="res://scripts/app_manager.gd" id="1_s6ce1"]
+[ext_resource type="Script" uid="uid://dm4eq7p8tidxs" path="res://scripts/spout_source.gd" id="3_7ikde"]
+[ext_resource type="FontFile" uid="uid://3vko4khl3g3n" path="res://fonts/Montserrat-Bold.ttf" id="4_awiwq"]
+[ext_resource type="Script" uid="uid://byel7yfk881jx" path="res://scripts/spout_manager.gd" id="4_cl6f3"]
+[ext_resource type="Script" uid="uid://dv2rrkaf4ctl7" path="res://scripts/save_manager.gd" id="4_f1drf"]
+[ext_resource type="Script" uid="uid://b8na3hxvyufok" path="res://scripts/update_checker.gd" id="5_0frui"]
+[ext_resource type="LabelSettings" uid="uid://b4echuaacw6hq" path="res://presets/label settings/sidebar_row_text.tres" id="5_awiwq"]
+[ext_resource type="LabelSettings" uid="uid://chh4bhnm8gn5w" path="res://presets/label settings/sidebar_category.tres" id="5_k6d74"]
+[ext_resource type="Texture2D" uid="uid://bacanif5jhn13" path="res://sprites/refresh_icon_white.png" id="7_ljqyw"]
+[ext_resource type="Script" uid="uid://hryfn4v704p4" path="res://scripts/lighting_preview.gd" id="8_604k0"]
+[ext_resource type="FontFile" uid="uid://dwthl8ucxmvm3" path="res://fonts/Montserrat-Regular.ttf" id="8_jv7dx"]
+[ext_resource type="Script" uid="uid://bdd75jm50uts8" path="res://scenes/vtuber_preview.gd" id="8_q1usv"]
+[ext_resource type="StyleBox" uid="uid://bc174gsscmoxr" path="res://presets/styles/button_press.tres" id="9_ltcdg"]
+[ext_resource type="StyleBox" uid="uid://b4vrypeagk6e" path="res://presets/styles/button_hover.tres" id="10_ceqke"]
+[ext_resource type="StyleBox" uid="uid://do3bap81ksorf" path="res://presets/styles/button_disabled.tres" id="11_s6ce1"]
+[ext_resource type="FontFile" uid="uid://dtnxj0m45j5rw" path="res://fonts/Montserrat-Light.ttf" id="12_ceqke"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dmsei"]
+viewport_path = NodePath("Lighting SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cl6f3"]
+resource_local_to_scene = true
+shader = ExtResource("1_1670a")
+shader_parameter/light_tex = SubResource("ViewportTexture_dmsei")
+shader_parameter/use_alternative_light_blending = false
+shader_parameter/light_strength = 0.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7ikde"]
+viewport_path = NodePath("SpoutViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0wu41"]
+viewport_path = NodePath("Lighting SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_k6d74"]
+font = ExtResource("4_awiwq")
+font_size = 24
+outline_size = 8
+outline_color = Color(0.11372549, 0.08627451, 0.08627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljqyw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.7019608, 0.09019608, 0.21960784, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ceqke"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.5459843, 0.05667279, 0.16198027, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_s6ce1"]
+font = ExtResource("12_ceqke")
+font_color = Color(0.70380783, 0.70380783, 0.70380783, 1)
+outline_size = 2
+outline_color = Color(0.11858138, 0.11858138, 0.11858138, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0frui"]
+font = ExtResource("8_jv7dx")
+font_color = Color(0, 1, 0, 1)
+
+[node name="App" type="Control" unique_id=1507557965]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s6ce1")
+
+[node name="Spout Manager" type="Node" parent="." unique_id=1720887624]
+script = ExtResource("4_cl6f3")
+
+[node name="Vtuber Source" type="Node" parent="Spout Manager" unique_id=12304052 node_paths=PackedStringArray("_source_dropdown", "_refresh_button")]
+script = ExtResource("3_7ikde")
+_source_type = 1
+_preferred_source_names = Array[String](["VseeFace", "VTubeStudioSpout"])
+_source_dropdown = NodePath("../../Sidebar/Container/Vtuber Source/HBoxContainer/OptionButton")
+_refresh_button = NodePath("../../Sidebar/Container/Vtuber Source/HBoxContainer/Button Refresh")
+
+[node name="Light Source" type="Node" parent="Spout Manager" unique_id=229984009 node_paths=PackedStringArray("_source_dropdown", "_refresh_button")]
+script = ExtResource("3_7ikde")
+_source_type = 2
+_source_dropdown = NodePath("../../Sidebar/Container/Light Source/HBoxContainer/OptionButton")
+_refresh_button = NodePath("../../Sidebar/Container/Light Source/HBoxContainer/Button Refresh")
+
+[node name="Save Manager" type="Node" parent="." unique_id=1410680779]
+script = ExtResource("4_f1drf")
+metadata/_custom_type_script = "uid://dv2rrkaf4ctl7"
+
+[node name="Update Checker" type="Node" parent="." unique_id=869874681]
+script = ExtResource("5_0frui")
+_current_version = "2.0.0"
+
+[node name="Lighting SubViewport" type="SubViewport" parent="." unique_id=1311556446]
+transparent_bg = true
+size = Vector2i(20, 11)
+size_2d_override = Vector2i(1280, 720)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Pixelated BG" type="TextureRect" parent="Lighting SubViewport" unique_id=917213227]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SpoutViewport" type="SpoutViewport" parent="." unique_id=552558296]
+sender_name = "VtubeLighting"
+transparent_bg = true
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="Vtuber Result" type="TextureRect" parent="SpoutViewport" unique_id=2116274605]
+material = SubResource("ShaderMaterial_cl6f3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Checkerboard BG" type="TextureRect" parent="." unique_id=145432006]
+modulate = Color(0.42365062, 0.42365065, 0.42365062, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_awiwq")
+stretch_mode = 1
+
+[node name="Vtuber Preview" type="TextureRect" parent="." unique_id=1141029988]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_7ikde")
+script = ExtResource("8_q1usv")
+
+[node name="Lighting Preview" type="ColorRect" parent="." unique_id=791295867]
+self_modulate = Color(0.47397572, 0.47397572, 0.47397572, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -151.0
+offset_right = 256.0
+offset_bottom = -16.0
+grow_vertical = 0
+tooltip_text = "tt_light_preview"
+mouse_default_cursor_shape = 16
+script = ExtResource("8_604k0")
+
+[node name="Preview" type="TextureRect" parent="Lighting Preview" unique_id=1927645525]
+texture_filter = 2
+custom_minimum_size = Vector2(235, 130)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_0wu41")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Sidebar" type="ColorRect" parent="." unique_id=476307292]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.23921569, 0.23921569, 0.23921569, 1)
+
+[node name="Header" type="ColorRect" parent="Sidebar" unique_id=2049950428]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0.7019608, 0.09019608, 0.21960784, 1)
+
+[node name="Label" type="Label" parent="Sidebar/Header" unique_id=1512217084]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "VtubeLighting V2"
+label_settings = SubResource("LabelSettings_k6d74")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Container" type="VBoxContainer" parent="Sidebar" unique_id=1219354371]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label Category" type="Label" parent="Sidebar/Container" unique_id=1778031116]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "sb_app_settings"
+label_settings = ExtResource("5_k6d74")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Separator" type="ColorRect" parent="Sidebar/Container" unique_id=897212603]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[node name="Language" type="MarginContainer" parent="Sidebar/Container" unique_id=1644541280]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sidebar/Container/Language" unique_id=913875737]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Sidebar/Container/Language/HBoxContainer" unique_id=602913822]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "sb_language"
+label_settings = ExtResource("5_awiwq")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="OptionButton" type="OptionButton" parent="Sidebar/Container/Language/HBoxContainer" unique_id=1915284736]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/pressed = ExtResource("9_ltcdg")
+theme_override_styles/hover = ExtResource("10_ceqke")
+theme_override_styles/disabled = ExtResource("11_s6ce1")
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Français"
+popup/item_1/id = 1
+
+[node name="Separator2" type="ColorRect" parent="Sidebar/Container" unique_id=1392942694]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[node name="Max FPS" type="MarginContainer" parent="Sidebar/Container" unique_id=296494582]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sidebar/Container/Max FPS" unique_id=333861274]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Sidebar/Container/Max FPS/HBoxContainer" unique_id=761384204]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "tt_max_fps"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+text = "sb_max_fps"
+label_settings = ExtResource("5_awiwq")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="OptionButton" type="OptionButton" parent="Sidebar/Container/Max FPS/HBoxContainer" unique_id=514145256]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/pressed = ExtResource("9_ltcdg")
+theme_override_styles/hover = ExtResource("10_ceqke")
+theme_override_styles/disabled = ExtResource("11_s6ce1")
+selected = 3
+item_count = 6
+popup/item_0/text = "30"
+popup/item_0/id = 0
+popup/item_1/text = "45"
+popup/item_1/id = 1
+popup/item_2/text = "50"
+popup/item_2/id = 2
+popup/item_3/text = "60"
+popup/item_3/id = 3
+popup/item_4/text = "90"
+popup/item_4/id = 4
+popup/item_5/text = "120"
+popup/item_5/id = 5
+
+[node name="Separator3" type="ColorRect" parent="Sidebar/Container" unique_id=696201401]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[node name="Performance Mode" type="MarginContainer" parent="Sidebar/Container" unique_id=276879944]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sidebar/Container/Performance Mode" unique_id=660942726]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Sidebar/Container/Performance Mode/HBoxContainer" unique_id=2022569333]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "tt_perf_mode"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+text = "sb_perf_mode"
+label_settings = ExtResource("5_awiwq")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="OptionButton" type="OptionButton" parent="Sidebar/Container/Performance Mode/HBoxContainer" unique_id=1593348748]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/pressed = ExtResource("9_ltcdg")
+theme_override_styles/hover = ExtResource("10_ceqke")
+theme_override_styles/disabled = ExtResource("11_s6ce1")
+selected = 1
+item_count = 2
+popup/item_0/text = "g_enabled"
+popup/item_0/id = 0
+popup/item_1/text = "g_disabled"
+popup/item_1/id = 1
+
+[node name="Separator4" type="ColorRect" parent="Sidebar/Container" unique_id=2079219654]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[node name="Update Check" type="MarginContainer" parent="Sidebar/Container" unique_id=739996427]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sidebar/Container/Update Check" unique_id=311991233]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Sidebar/Container/Update Check/HBoxContainer" unique_id=228469568]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "tt_update_check"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+text = "sb_update_check"
+label_settings = ExtResource("5_awiwq")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="OptionButton" type="OptionButton" parent="Sidebar/Container/Update Check/HBoxContainer" unique_id=2070410538]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/pressed = ExtResource("9_ltcdg")
+theme_override_styles/hover = ExtResource("10_ceqke")
+theme_override_styles/disabled = ExtResource("11_s6ce1")
+selected = 0
+item_count = 2
+popup/item_0/text = "g_enabled"
+popup/item_0/id = 0
+popup/item_1/text = "g_disabled"
+popup/item_1/id = 1
+
+[node name="Separator5" type="ColorRect" parent="Sidebar/Container" unique_id=965207430]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[node name="Spacer" type="Control" parent="Sidebar/Container" unique_id=2050995263]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label Category2" type="Label" parent="Sidebar/Container" unique_id=289978224]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "sb_lighting_setup"
+label_settings = ExtResource("5_k6d74")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Separator6" type="ColorRect" parent="Sidebar/Container" unique_id=1841610696]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[node name="Vtuber Source" type="MarginContainer" parent="Sidebar/Container" unique_id=1771637292]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sidebar/Container/Vtuber Source" unique_id=2093481957]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Sidebar/Container/Vtuber Source/HBoxContainer" unique_id=529973126]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "tt_vtuber_source"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+text = "sb_vtuber_source"
+label_settings = ExtResource("5_awiwq")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="OptionButton" type="OptionButton" parent="Sidebar/Container/Vtuber Source/HBoxContainer" unique_id=239564512]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/pressed = ExtResource("9_ltcdg")
+theme_override_styles/hover = ExtResource("10_ceqke")
+theme_override_styles/disabled = ExtResource("11_s6ce1")
+
+[node name="Button Refresh" type="Button" parent="Sidebar/Container/Vtuber Source/HBoxContainer" unique_id=1958878747]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+
+[node name="TextureRect" type="TextureRect" parent="Sidebar/Container/Vtuber Source/HBoxContainer/Button Refresh" unique_id=1814364492]
+modulate = Color(0.7792914, 0.7792914, 0.7792913, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_ljqyw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Separator7" type="ColorRect" parent="Sidebar/Container" unique_id=685284782]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[node name="Light Source" type="MarginContainer" parent="Sidebar/Container" unique_id=802078906]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sidebar/Container/Light Source" unique_id=1405678097]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Sidebar/Container/Light Source/HBoxContainer" unique_id=1432162232]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "tt_light_source"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+text = "sb_light_source"
+label_settings = ExtResource("5_awiwq")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="OptionButton" type="OptionButton" parent="Sidebar/Container/Light Source/HBoxContainer" unique_id=94703812]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/pressed = ExtResource("9_ltcdg")
+theme_override_styles/hover = ExtResource("10_ceqke")
+theme_override_styles/disabled = ExtResource("11_s6ce1")
+
+[node name="Button Refresh" type="Button" parent="Sidebar/Container/Light Source/HBoxContainer" unique_id=1079139468]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+
+[node name="TextureRect" type="TextureRect" parent="Sidebar/Container/Light Source/HBoxContainer/Button Refresh" unique_id=1634935138]
+modulate = Color(0.7792914, 0.7792914, 0.7792913, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_ljqyw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Separator8" type="ColorRect" parent="Sidebar/Container" unique_id=171669128]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[node name="Spacer2" type="Control" parent="Sidebar/Container" unique_id=2033330837]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label Category3" type="Label" parent="Sidebar/Container" unique_id=1932131593]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "sb_lighting_settings"
+label_settings = ExtResource("5_k6d74")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Separator9" type="ColorRect" parent="Sidebar/Container" unique_id=605666900]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[node name="Lighting Intensity" type="MarginContainer" parent="Sidebar/Container" unique_id=160952675]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sidebar/Container/Lighting Intensity" unique_id=1138738779]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Sidebar/Container/Lighting Intensity/HBoxContainer" unique_id=821719824]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "tt_light_intensity"
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+text = "sb_lighting_intensity"
+label_settings = ExtResource("5_awiwq")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HSlider" type="HSlider" parent="Sidebar/Container/Lighting Intensity/HBoxContainer" unique_id=428624268]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ljqyw")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_ceqke")
+max_value = 1.0
+step = 0.01
+
+[node name="SpinBox" type="SpinBox" parent="Sidebar/Container/Lighting Intensity/HBoxContainer" unique_id=504284689]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+
+[node name="Separator10" type="ColorRect" parent="Sidebar/Container" unique_id=959686849]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[node name="Spacer3" type="Control" parent="Sidebar/Container" unique_id=1672222392]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Help Container" type="VBoxContainer" parent="Sidebar/Container" unique_id=251233196]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="Button Start" type="Button" parent="Sidebar/Container/Help Container" unique_id=2094182769]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_jv7dx")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/pressed = ExtResource("9_ltcdg")
+theme_override_styles/hover = ExtResource("10_ceqke")
+theme_override_styles/disabled = ExtResource("11_s6ce1")
+text = "sb_help"
+
+[node name="Spacer4" type="Control" parent="Sidebar/Container/Help Container" unique_id=255358134]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Sidebar/Container/Help Container" unique_id=963898428]
+layout_mode = 2
+size_flags_vertical = 1
+text = "sb_hint"
+label_settings = SubResource("LabelSettings_s6ce1")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Spacer5" type="Control" parent="Sidebar/Container" unique_id=1203790723]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label Update" type="Label" parent="Sidebar/Container" unique_id=644698455]
+visible = false
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "sb_new_update
+"
+label_settings = SubResource("LabelSettings_0frui")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

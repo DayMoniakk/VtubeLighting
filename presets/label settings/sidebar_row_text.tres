@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://b4echuaacw6hq"]
+
+[ext_resource type="FontFile" uid="uid://dwthl8ucxmvm3" path="res://fonts/Montserrat-Regular.ttf" id="1_u80yc"]
+
+[resource]
+font = ExtResource("1_u80yc")
+font_size = 24
+outline_size = 6
+outline_color = Color(0.09239707, 0.09239706, 0.09239706, 1)
