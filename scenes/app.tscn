@@ -18,6 +18,20 @@
 [ext_resource type="StyleBox" uid="uid://b4vrypeagk6e" path="res://presets/styles/button_hover.tres" id="10_ceqke"]
 [ext_resource type="StyleBox" uid="uid://do3bap81ksorf" path="res://presets/styles/button_disabled.tres" id="11_s6ce1"]
 [ext_resource type="FontFile" uid="uid://dtnxj0m45j5rw" path="res://fonts/Montserrat-Light.ttf" id="12_ceqke"]
+[ext_resource type="Script" uid="uid://5ih4jx5bnbhy" path="res://scripts/tutorial_window.gd" id="19_7ip81"]
+[ext_resource type="Script" uid="uid://byra5fo8lwepe" path="res://scripts/url_opener.gd" id="19_rp1ji"]
+[ext_resource type="Texture2D" uid="uid://dmd1fprl8bqvo" path="res://sprites/tutorial/vseeface.png" id="19_xup88"]
+[ext_resource type="Texture2D" uid="uid://b7uol3cy56ytw" path="res://sprites/tutorial/vtubestudio.png" id="21_465pm"]
+[ext_resource type="Texture2D" uid="uid://c8umq1oybbvp2" path="res://sprites/tutorial/vtubelighting_vtuber_source.png" id="22_58s2n"]
+[ext_resource type="Texture2D" uid="uid://e6ae2yyyoh4v" path="res://sprites/tutorial/obs_filters.png" id="23_eqqwu"]
+[ext_resource type="Texture2D" uid="uid://d4bqd84ciffme" path="res://sprites/tutorial/obs_add_filter.png" id="24_kdd54"]
+[ext_resource type="Texture2D" uid="uid://jxx4cu7wc868" path="res://sprites/tutorial/obs_filter_name.png" id="25_681kt"]
+[ext_resource type="Texture2D" uid="uid://b1wwpill2qhby" path="res://sprites/tutorial/obs_filter_settings.png" id="26_rwihi"]
+[ext_resource type="Texture2D" uid="uid://vhnpdpkyysf7" path="res://sprites/tutorial/vtubelighting_final_lighting_setup.png" id="27_iayit"]
+[ext_resource type="Texture2D" uid="uid://uiiq20miw2do" path="res://sprites/tutorial/vtubelighting_light_source_preview.png" id="28_q2lwu"]
+[ext_resource type="Texture2D" uid="uid://bm5oxr6p34rsh" path="res://sprites/tutorial/vtubelighting_intensity_slider.png" id="29_pcp7a"]
+[ext_resource type="Texture2D" uid="uid://h2p1djbkdocd" path="res://sprites/tutorial/obs_spout_capture.png" id="30_pcp7a"]
+[ext_resource type="Texture2D" uid="uid://csir14746u64f" path="res://sprites/tutorial/obs_spout_capture_setup.png" id="31_avep7"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dmsei"]
 viewport_path = NodePath("Lighting SubViewport")
@@ -77,6 +91,13 @@ outline_color = Color(0.11858138, 0.11858138, 0.11858138, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_0frui"]
 font = ExtResource("8_jv7dx")
 font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xup88"]
+font = ExtResource("8_jv7dx")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1usv"]
+content_margin_left = 8.0
+content_margin_right = 8.0
 
 [node name="App" type="Control" unique_id=1507557965]
 layout_mode = 3
@@ -650,7 +671,7 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 2
 
-[node name="Button Start" type="Button" parent="Sidebar/Container/Help Container" unique_id=2094182769]
+[node name="Button Help" type="Button" parent="Sidebar/Container/Help Container" unique_id=2094182769]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -688,3 +709,390 @@ label_settings = SubResource("LabelSettings_0frui")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Tutorial Window" type="ColorRect" parent="." unique_id=708908299]
+layout_mode = 1
+offset_right = 474.0
+offset_bottom = 554.0
+color = Color(0.23921569, 0.23921569, 0.23921569, 1)
+script = ExtResource("19_7ip81")
+
+[node name="Header" type="ColorRect" parent="Tutorial Window" unique_id=1570864999]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0.7019608, 0.09019608, 0.21960784, 1)
+
+[node name="Label" type="Label" parent="Tutorial Window/Header" unique_id=2088986214]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tutorial"
+label_settings = SubResource("LabelSettings_k6d74")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button Close" type="Button" parent="Tutorial Window/Header" unique_id=2024206042]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_awiwq")
+theme_override_font_sizes/font_size = 32
+text = "X"
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Tutorial Window" unique_id=530554576]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 47.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Page 1" type="VBoxContainer" parent="Tutorial Window/MarginContainer" unique_id=730866136]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 1" unique_id=131685286]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Welcome to the tutorial, we are going to setup the software together.
+Don't worry it's not very hard to setup!
+
+
+Firstly, make sure that your Vtubing software supports spout2.
+
+If it doesn't you will have to \"cheat\" with the \"Spout Filter\" in OBS (you can refer to page 5, it works in more or less the same way)
+
+Speaking of OBS, you need to install a third party plugin to use it, I'll leave a link below:
+"
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="Tutorial Window/MarginContainer/Page 1" unique_id=874436619]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_jv7dx")
+theme_override_styles/pressed = ExtResource("9_ltcdg")
+theme_override_styles/hover = ExtResource("10_ceqke")
+theme_override_styles/disabled = ExtResource("11_s6ce1")
+text = "How to install the Spout plugin for OBS Studio"
+autowrap_mode = 3
+script = ExtResource("19_rp1ji")
+_url = "https://knowledge.offworld.live/en/spout-plugin-for-obs-studio/how-to-install-the-spout-plugin-for-obs-studio"
+
+[node name="Page 2" type="VBoxContainer" parent="Tutorial Window/MarginContainer" unique_id=1223334287]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 2" unique_id=768922764]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Activate the Spout2 sender in your vtubing software.
+
+Here is how to do it in VSeeface:"
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial Window/MarginContainer/Page 2" unique_id=1961939254]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("19_xup88")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Page 3" type="VBoxContainer" parent="Tutorial Window/MarginContainer" unique_id=1980979331]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 3" unique_id=1148867898]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Here is how to do it in Vtube Studio:
+
+(Settings -> Camera icon)"
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial Window/MarginContainer/Page 3" unique_id=181753168]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("21_465pm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Page 4" type="VBoxContainer" parent="Tutorial Window/MarginContainer" unique_id=1776988385]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 4" unique_id=1799891407]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "In VtubeLighting, click on the refresh icon next to \"Vtuber Source\" and select your vtubing software in the list (if not already selected by default).
+
+This is how it should look:"
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial Window/MarginContainer/Page 4" unique_id=90745889]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 2
+texture = ExtResource("22_58s2n")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Page 5" type="VBoxContainer" parent="Tutorial Window/MarginContainer" unique_id=180705326]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 5" unique_id=1967138403]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Open OBS and add your game to your scene.
+
+Right click on the game source and click \"Filters\"."
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial Window/MarginContainer/Page 5" unique_id=640915353]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("23_eqqwu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="Tutorial Window/MarginContainer/Page 5" unique_id=618712822]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Add the Spout filter."
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Tutorial Window/MarginContainer/Page 5" unique_id=1580645326]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("24_kdd54")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Page 6" type="VBoxContainer" parent="Tutorial Window/MarginContainer" unique_id=2117905594]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 6" unique_id=295022790]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "It will ask you to enter a name, it doesn't really matter.
+Name it ifyou want to stay organized, otherwise it's totally fine to keep the default name."
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial Window/MarginContainer/Page 6" unique_id=1046672668]
+custom_minimum_size = Vector2(0, 124.795)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("25_681kt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="Tutorial Window/MarginContainer/Page 6" unique_id=1612537094]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Unlike the previous step this is really important to name it properly.
+Spout names should never be the same, make sure they are unique.
+Once properly named, press the button:"
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Tutorial Window/MarginContainer/Page 6" unique_id=1951903315]
+custom_minimum_size = Vector2(0, 124.795)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("26_rwihi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Page 7" type="VBoxContainer" parent="Tutorial Window/MarginContainer" unique_id=514251825]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 7" unique_id=63513036]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "In VtubeLighting, select the newly created Spout sender created in OBS.
+
+This is what it should look like:"
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial Window/MarginContainer/Page 7" unique_id=153180279]
+custom_minimum_size = Vector2(0, 124.795)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("27_iayit")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Page 8" type="VBoxContainer" parent="Tutorial Window/MarginContainer" unique_id=412406771]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 8" unique_id=270893509]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "On the bottom left you will see a small preview of the game sent by OBS.
+
+It is heavily blurred and is applied on your vtuber model."
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial Window/MarginContainer/Page 8" unique_id=1389626019]
+custom_minimum_size = Vector2(0, 124.795)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("28_q2lwu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="Tutorial Window/MarginContainer/Page 8" unique_id=604231617]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "
+Feel free to play with the intensity slider to control how much of light is projected onto your vtuber model:"
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Tutorial Window/MarginContainer/Page 8" unique_id=853042516]
+custom_minimum_size = Vector2(0, 124.795)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("29_pcp7a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Page 9" type="VBoxContainer" parent="Tutorial Window/MarginContainer" unique_id=1803075608]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 9" unique_id=582163443]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Finally, you display your vtuber model with the lighting applied.
+
+Go back inside OBS, create a new source of type \"Spout2 Capture\" in your scene."
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial Window/MarginContainer/Page 9" unique_id=1073116453]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("30_pcp7a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Page 10" type="VBoxContainer" parent="Tutorial Window/MarginContainer" unique_id=984245491]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 10" unique_id=1264321934]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Select \"VtubeLighting\" in \"SpoutSenders\".
+
+Select \"Default\" in \"Composite mode\", otherwise the background will not be transparent."
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial Window/MarginContainer/Page 10" unique_id=2118317262]
+custom_minimum_size = Vector2(0, 102.585)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("31_avep7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="Tutorial Window/MarginContainer/Page 10" unique_id=253045502]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "
+You should be good to go after that and can freely minimize this window.
+
+There is also a \"Performance Mode\" available to reduce the amount of resources used by VtubeLighting.
+This is optional and will not impact the lighting."
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="Page 11" type="VBoxContainer" parent="Tutorial Window/MarginContainer" unique_id=1362014490]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 11" unique_id=1089660023]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "KNOWN ISSUES
+
+- Low FPS inside VtubeLighting:
+
+It only happened once to me, I fixed it by restarting OBS and optionally VtubeLighting."
+label_settings = SubResource("LabelSettings_xup88")
+autowrap_mode = 3
+
+[node name="Buttons" type="HBoxContainer" parent="Tutorial Window" unique_id=854439582]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Button Previous" type="Button" parent="Tutorial Window/Buttons" unique_id=1552245250]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_awiwq")
+theme_override_styles/pressed = ExtResource("9_ltcdg")
+theme_override_styles/hover = ExtResource("10_ceqke")
+theme_override_styles/disabled = ExtResource("11_s6ce1")
+text = "<"
+
+[node name="Label Pages" type="Label" parent="Tutorial Window/Buttons" unique_id=1084817524]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_awiwq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q1usv")
+text = "1 / 10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button Next" type="Button" parent="Tutorial Window/Buttons" unique_id=1570048811]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_awiwq")
+theme_override_styles/pressed = ExtResource("9_ltcdg")
+theme_override_styles/hover = ExtResource("10_ceqke")
+theme_override_styles/disabled = ExtResource("11_s6ce1")
+text = ">"

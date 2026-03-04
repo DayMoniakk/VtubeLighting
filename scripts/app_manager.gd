@@ -12,10 +12,14 @@ signal on_performance_mode_changed(state: bool)
 @onready var _vtuber_result: TextureRect = $"SpoutViewport/Vtuber Result"
 @onready var _perf_mode_dropdown: OptionButton = $"Sidebar/Container/Performance Mode/HBoxContainer/OptionButton"
 @onready var _update_check_dropdown: OptionButton = $"Sidebar/Container/Update Check/HBoxContainer/OptionButton"
+@onready var _button_help: Button = $"Sidebar/Container/Help Container/Button Help"
 @onready var _save_manager: SaveManager = $"Save Manager"
 @onready var _update_checker: UpdateChecker = $"Update Checker"
+@onready var _tutorial_window: ColorRect = $"Tutorial Window"
 
 func _ready() -> void:
+	_tutorial_window.hide()
+	
 	_on_language_selected(_get_lang_index(_save_manager.get_language()))
 	
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
@@ -42,6 +46,7 @@ func _ready() -> void:
 	_intensity_spinbox.value_changed.connect(_on_changing_intensity_spinbox)
 	_perf_mode_dropdown.item_selected.connect(_on_perf_mode_changed)
 	_update_check_dropdown.item_selected.connect(_on_update_check_changed)
+	_button_help.pressed.connect(_on_help_button_pressed)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("toggle_sidebar"):
@@ -136,3 +141,6 @@ func _on_update_check_changed(index: int) -> void:
 		_save_manager.set_check_for_updates(false)
 	
 	_save_manager.save_config()
+
+func _on_help_button_pressed() -> void:
+	_tutorial_window.show()

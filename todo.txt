@@ -1,4 +1,3 @@
 - refresh btn shouldn't refresh both sources (maybe)
-- in app tutorial
 - known issues:
 	* if low fps: restart OBS and VtubeLighting
