@@ -1,6 +1,9 @@
 keys,en,fr
 g_enabled,"Enabled","Activé"
 g_disabled,"Disabled","Désactivé"
+g_none,"None","Aucune"
+
+lp_light_preview,"Light Source Preview","Aperçu de la source de lumière"
 
 sb_app_settings,"Application Settings","Options de l'Application"
 sb_language,"Language","Langue"

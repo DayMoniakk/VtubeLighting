@@ -80,7 +80,7 @@ func _refresh_options() -> void:
 			push_warning("Source type not selected")
 	
 	if new_sender == "":
-		_source_dropdown.select(-1)
+		_source_dropdown.add_item("g_none")
 	else:
 		for i: int in range(_source_dropdown.item_count):
 			if _source_dropdown.get_item_text(i) == new_sender:

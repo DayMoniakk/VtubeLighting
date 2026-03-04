@@ -10,10 +10,10 @@
 [ext_resource type="Script" uid="uid://b8na3hxvyufok" path="res://scripts/update_checker.gd" id="5_0frui"]
 [ext_resource type="LabelSettings" uid="uid://b4echuaacw6hq" path="res://presets/label settings/sidebar_row_text.tres" id="5_awiwq"]
 [ext_resource type="LabelSettings" uid="uid://chh4bhnm8gn5w" path="res://presets/label settings/sidebar_category.tres" id="5_k6d74"]
-[ext_resource type="Texture2D" uid="uid://bacanif5jhn13" path="res://sprites/refresh_icon_white.png" id="7_ljqyw"]
+[ext_resource type="Texture2D" uid="uid://bacanif5jhn13" path="res://sprites/refresh_icon.png" id="7_ljqyw"]
 [ext_resource type="Script" uid="uid://hryfn4v704p4" path="res://scripts/lighting_preview.gd" id="8_604k0"]
 [ext_resource type="FontFile" uid="uid://dwthl8ucxmvm3" path="res://fonts/Montserrat-Regular.ttf" id="8_jv7dx"]
-[ext_resource type="Script" uid="uid://bdd75jm50uts8" path="res://scenes/vtuber_preview.gd" id="8_q1usv"]
+[ext_resource type="Script" uid="uid://bdd75jm50uts8" path="res://scripts/vtuber_preview.gd" id="8_q1usv"]
 [ext_resource type="StyleBox" uid="uid://bc174gsscmoxr" path="res://presets/styles/button_press.tres" id="9_ltcdg"]
 [ext_resource type="StyleBox" uid="uid://b4vrypeagk6e" path="res://presets/styles/button_hover.tres" id="10_ceqke"]
 [ext_resource type="StyleBox" uid="uid://do3bap81ksorf" path="res://presets/styles/button_disabled.tres" id="11_s6ce1"]
@@ -31,6 +31,9 @@ shader_parameter/light_strength = 0.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7ikde"]
 viewport_path = NodePath("SpoutViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1usv"]
+font = ExtResource("8_jv7dx")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0wu41"]
 viewport_path = NodePath("Lighting SubViewport")
@@ -173,6 +176,19 @@ grow_vertical = 0
 tooltip_text = "tt_light_preview"
 mouse_default_cursor_shape = 16
 script = ExtResource("8_604k0")
+
+[node name="Label" type="Label" parent="Lighting Preview" unique_id=615188614]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "lp_light_preview"
+label_settings = SubResource("LabelSettings_q1usv")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Preview" type="TextureRect" parent="Lighting Preview" unique_id=1927645525]
 texture_filter = 2
