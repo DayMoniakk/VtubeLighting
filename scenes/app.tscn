@@ -773,16 +773,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 1" unique_id=131685286]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "Welcome to the tutorial, we are going to setup the software together.
-Don't worry it's not very hard to setup!
-
-
-Firstly, make sure that your Vtubing software supports spout2.
-
-If it doesn't you will have to \"cheat\" with the \"Spout Filter\" in OBS (you can refer to page 5, it works in more or less the same way)
-
-Speaking of OBS, you need to install a third party plugin to use it, I'll leave a link below:
-"
+text = "tutorial_p01_01"
 label_settings = SubResource("LabelSettings_xup88")
 autowrap_mode = 3
 
@@ -805,9 +796,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 2" unique_id=768922764]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "Activate the Spout2 sender in your vtubing software.
-
-Here is how to do it in VSeeface:"
+text = "tutorial_p02_01"
 label_settings = SubResource("LabelSettings_xup88")
 autowrap_mode = 3
 
@@ -825,9 +814,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 3" unique_id=1148867898]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "Here is how to do it in Vtube Studio:
-
-(Settings -> Camera icon)"
+text = "tutorial_p03_01"
 label_settings = SubResource("LabelSettings_xup88")
 autowrap_mode = 3
 
@@ -845,9 +832,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 4" unique_id=1799891407]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "In VtubeLighting, click on the refresh icon next to \"Vtuber Source\" and select your vtubing software in the list (if not already selected by default).
-
-This is how it should look:"
+text = "tutorial_p04_01"
 label_settings = SubResource("LabelSettings_xup88")
 autowrap_mode = 3
 
@@ -866,9 +851,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 5" unique_id=1967138403]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "Open OBS and add your game to your scene.
-
-Right click on the game source and click \"Filters\"."
+text = "tutorial_p05_01"
 label_settings = SubResource("LabelSettings_xup88")
 autowrap_mode = 3
 
@@ -901,8 +884,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 6" unique_id=295022790]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "It will ask you to enter a name, it doesn't really matter.
-Name it ifyou want to stay organized, otherwise it's totally fine to keep the default name."
+text = "tutorial_p06_01"
 label_settings = SubResource("LabelSettings_xup88")
 autowrap_mode = 3
 
@@ -917,9 +899,7 @@ stretch_mode = 5
 [node name="Label2" type="Label" parent="Tutorial Window/MarginContainer/Page 6" unique_id=1612537094]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "Unlike the previous step this is really important to name it properly.
-Spout names should never be the same, make sure they are unique.
-Once properly named, press the button:"
+text = "tutorial_p06_02"
 label_settings = SubResource("LabelSettings_xup88")
 autowrap_mode = 3
 
@@ -938,9 +918,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 7" unique_id=63513036]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "In VtubeLighting, select the newly created Spout sender created in OBS.
-
-This is what it should look like:"
+text = "tutorial_p07_01"
 label_settings = SubResource("LabelSettings_xup88")
 autowrap_mode = 3
 
@@ -959,9 +937,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 8" unique_id=270893509]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "On the bottom left you will see a small preview of the game sent by OBS.
-
-It is heavily blurred and is applied on your vtuber model."
+text = "tutorial_p08_01"
 label_settings = SubResource("LabelSettings_xup88")
 autowrap_mode = 3
 
@@ -976,8 +952,7 @@ stretch_mode = 5
 [node name="Label2" type="Label" parent="Tutorial Window/MarginContainer/Page 8" unique_id=604231617]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "
-Feel free to play with the intensity slider to control how much of light is projected onto your vtuber model:"
+text = "tutorial_p08_02"
 label_settings = SubResource("LabelSettings_xup88")
 autowrap_mode = 3
 
@@ -996,9 +971,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 9" unique_id=582163443]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "Finally, you display your vtuber model with the lighting applied.
-
-Go back inside OBS, create a new source of type \"Spout2 Capture\" in your scene."
+text = "tutorial_p09_01"
 label_settings = SubResource("LabelSettings_xup88")
 autowrap_mode = 3
 
@@ -1016,9 +989,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 10" unique_id=1264321934]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "Select \"VtubeLighting\" in \"SpoutSenders\".
-
-Select \"Default\" in \"Composite mode\", otherwise the background will not be transparent."
+text = "tutorial_p10_01"
 label_settings = SubResource("LabelSettings_xup88")
 autowrap_mode = 3
 
@@ -1033,11 +1004,7 @@ stretch_mode = 5
 [node name="Label2" type="Label" parent="Tutorial Window/MarginContainer/Page 10" unique_id=253045502]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "
-You should be good to go after that and can freely minimize this window.
-
-There is also a \"Performance Mode\" available to reduce the amount of resources used by VtubeLighting.
-This is optional and will not impact the lighting."
+text = "tutorial_p10_02"
 label_settings = SubResource("LabelSettings_xup88")
 autowrap_mode = 3
 
@@ -1048,11 +1015,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Tutorial Window/MarginContainer/Page 11" unique_id=1089660023]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "KNOWN ISSUES
-
-- Low FPS inside VtubeLighting:
-
-It only happened once to me, I fixed it by restarting OBS and optionally VtubeLighting."
+text = "tutorial_p11_01"
 label_settings = SubResource("LabelSettings_xup88")
 autowrap_mode = 3
 
