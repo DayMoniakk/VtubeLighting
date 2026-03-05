@@ -7,6 +7,8 @@ var _spout: Spout
 var _received_background: SpoutTexture
 var _received_vtuber: SpoutTexture
 var _available_sources: Array[String]
+#var _light_receiver: SpoutReceiver
+#var _vtuber_receiver: SpoutReceiver
 
 @onready var _light_bg: TextureRect = $"../Lighting SubViewport/Pixelated BG"
 @onready var _vtuber_result: TextureRect = $"../SpoutViewport/Vtuber Result"
@@ -22,23 +24,35 @@ func _ready() -> void:
 	_vtuber_result.texture = _received_vtuber
 	_received_vtuber.sender_name = "STUPID_FIX_FOR_STUPID_BUG2"
 	
+	#_light_receiver = SpoutReceiver.new()
+	#_light_bg.texture = _light_receiver.get_texture()
+	#_vtuber_receiver = SpoutReceiver.new()
+	#_vtuber_result.texture = _vtuber_receiver.get_texture()
 	_refresh_senders_list()
+
+#func _process(_delta: float) -> void:
+	#_light_receiver.poll()
+	#_vtuber_receiver.poll()
 
 func set_vtuber_sender(source_name: String) -> void:
 	if _available_sources.has(source_name):
 		_received_vtuber.sender_name = source_name
+		#_vtuber_receiver.set_sender_name(source_name)
 
 func set_light_sender(source_name: String) -> void:
 	if _available_sources.has(source_name):
 		_received_background.sender_name = source_name
+		#_light_bg.set_sender_name(source_name)
 
 func set_vtuber_sender_by_id(source_index: int) -> void:
 	if _available_sources.size() > source_index:
 		_received_vtuber.sender_name = _available_sources[source_index]
+		#_vtuber_receiver.set_sender_name(_available_sources[source_index])
 
 func set_light_sender_by_id(source_index: int) -> void:
 	if _available_sources.size() > source_index:
 		_received_background.sender_name = _available_sources[source_index]
+		#_light_receiver.set_sender_name(_available_sources[source_index])
 
 func get_available_sources() -> Array[String]:
 	return _available_sources

@@ -144,3 +144,8 @@ func _on_update_check_changed(index: int) -> void:
 
 func _on_help_button_pressed() -> void:
 	_tutorial_window.show()
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+		if DisplayServer.window_get_mode(0) == DisplayServer.WINDOW_MODE_MINIMIZED:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

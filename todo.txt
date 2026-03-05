@@ -1,3 +1,7 @@
 - refresh btn shouldn't refresh both sources (maybe)
 - known issues:
 	* if low fps: restart OBS and VtubeLighting
+	* very high gpu usage
+- display the game behind the model
+- disclose cannot minimize
+- adjust spout viewport size to fit the vtuber source size
