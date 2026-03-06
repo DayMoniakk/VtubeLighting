@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run in External cmd",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/Debug/net10.0/VtubeLighting.exe",
+            "cwd": "${workspaceFolder}",
+            "console": "externalTerminal",
+            "args": [],
+            "preLaunchTask": "Build"
+        },
+        {
+            "name": "Run release in External cmd",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/Release/net10.0/VtubeLighting.exe",
+            "cwd": "${workspaceFolder}",
+            "console": "externalTerminal",
+            "args": [],
+            "preLaunchTask": "Build Release Executable"
+        }
+    ]
+}

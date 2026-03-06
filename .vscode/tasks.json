@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "process",
+            "command": "dotnet",
+            "args": ["build"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        { // ctrl + shift + b to build
+            "label": "Build Single Executable",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "publish",
+                "-c", "Release",
+                "--self-contained",
+                "-r", "win-x64",
+                "-p:PublishSingleFile=true",
+                "-p:EnableCompressionInSingleFile=true",
+                // "-p:DebugType=None"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
