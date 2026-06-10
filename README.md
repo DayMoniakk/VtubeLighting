@@ -1,5 +1,8 @@
+# VtubeLighting
 
-# VtubeLighting (⚠ Currently in the process of rewriting the app using Godot)
+⚠ Project on hold, use [this OBS script](https://x.com/HoraiChan/status/2018282590936179024) has an alternative. (not affiliated)
+
+---------------------------------------
 
 Spout2 powered Vtubing application to implement screen lighting without these annoying yellow borders !
 
